@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2018-05-14T12:46:44.692Z</updated>
+  <updated>2018-05-15T23:44:09.646Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,31 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>测试编写文章</title>
+    <link href="http://yoursite.com/2018/05/15/%E6%B5%8B%E8%AF%95%E7%BC%96%E5%86%99%E6%96%87%E7%AB%A0/"/>
+    <id>http://yoursite.com/2018/05/15/测试编写文章/</id>
+    <published>2018-05-15T12:58:03.000Z</published>
+    <updated>2018-05-15T23:44:09.646Z</updated>
+    
+    <content type="html"><![CDATA[<p>在网上查找知识点时很容易产生当时看了就会，下次又遇到这个知识点时却不得不再次上网查看这个知识点的毛病。于是打算以后将自己领悟不清的知识点写下来（相信这也是大多数人喜欢写博客的原因吧），一方面为了给后来者借鉴，另一方面也是为了自己加深印象和自己对知识的总结。</p><p>今天就来谈谈自己对java中String、StringBuilder和StringBuffer知识点的理解。</p><ol><li><strong>String字符串常量</strong></li><li><strong>StringBuffer字符串变量(线程安全）</strong></li><li><strong>StringBuilder字符串变量（非线程安全）</strong></li></ol><hr><a id="more"></a>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;在网上查找知识点时很容易产生当时看了就会，下次又遇到这个知识点时却不得不再次上网查看这个知识点的毛病。于是打算以后将自己领悟不清的知识点写下来（相信这也是大多数人喜欢写博客的原因吧），一方面为了给后来者借鉴，另一方面也是为了自己加深印象和自己对知识的总结。&lt;/p&gt;
+&lt;p&gt;今天就来谈谈自己对java中String、StringBuilder和StringBuffer知识点的理解。&lt;/p&gt;
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;String字符串常量&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;StringBuffer字符串变量(线程安全）&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;StringBuilder字符串变量（非线程安全）&lt;/strong&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;hr&gt;
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>你好,hexo</title>
