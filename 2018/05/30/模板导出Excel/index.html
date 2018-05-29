@@ -88,17 +88,19 @@
 
 
 
-<meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="description" content="导出Excel非常常见，因为在一些管理系统中，需要导出的东西非常多。之前用的导出都是普通导出，并没有用到模板。后来看到能将html页面中的table转成Excel就觉得非常厉害。本文主要讲解的是用模板进行导出Excel。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://yoursite.com/2018/05/13/hello-world/index.html">
+<meta property="og:title" content="模板导出Excel;">
+<meta property="og:url" content="http://yoursite.com/2018/05/30/模板导出Excel/index.html">
 <meta property="og:site_name" content="codingAc&#39;s blog">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta property="og:description" content="导出Excel非常常见，因为在一些管理系统中，需要导出的东西非常多。之前用的导出都是普通导出，并没有用到模板。后来看到能将html页面中的table转成Excel就觉得非常厉害。本文主要讲解的是用模板进行导出Excel。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-14T12:46:41.924Z">
+<meta property="og:image" content="http://yoursite.com/images/model.png">
+<meta property="og:updated_time" content="2018-05-29T23:10:53.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Hello World">
-<meta name="twitter:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.">
+<meta name="twitter:title" content="模板导出Excel;">
+<meta name="twitter:description" content="导出Excel非常常见，因为在一些管理系统中，需要导出的东西非常多。之前用的导出都是普通导出，并没有用到模板。后来看到能将html页面中的table转成Excel就觉得非常厉害。本文主要讲解的是用模板进行导出Excel。">
+<meta name="twitter:image" content="http://yoursite.com/images/model.png">
 
 
 
@@ -128,13 +130,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/13/hello-world/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/05/30/模板导出Excel/"/>
 
 
 
 
 
-  <title>Hello World | codingAc's blog</title>
+  <title>模板导出Excel; | codingAc's blog</title>
   
 
 
@@ -281,7 +283,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/hello-world/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/30/模板导出Excel/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Achun">
@@ -298,7 +300,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Hello World</h1>
+          <h1 class="post-title" itemprop="name headline">模板导出Excel;</h1>
         
 
         <div class="post-meta">
@@ -310,8 +312,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T19:05:09+08:00">
-                2018-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-30T06:38:03+08:00">
+                2018-05-30
               </time>
             
 
@@ -342,7 +344,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  78
+                  895
                 </span>
               
 
@@ -358,7 +360,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  4
                 </span>
               
             </div>
@@ -379,16 +381,22 @@
       
 
       
-        <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="noopener">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="noopener">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="noopener">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="noopener">GitHub</a>.</p>
-<a id="more"></a>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">"My New Post"</span></span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="noopener">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="noopener">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="noopener">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="noopener">Deployment</a></p>
+        <p>导出Excel非常常见，因为在一些管理系统中，需要导出的东西非常多。<br>之前用的导出都是普通导出，并没有用到模板。后来看到能将html页面中的table<br>转成Excel就觉得非常厉害。本文主要讲解的是用模板进行导出Excel。<br><a id="more"></a></p>
+<h2 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h2><p>下载有关pom文件的jar包。如果是Maven项目，配置如下。<br>pom.xml<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;poi&lt;/artifactId&gt;</span><br><span class="line">     &lt;version&gt;3.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>首先在项目某个目录下放入模板，因为需要将模板信息读出来，这里我在<br><img src="/images/model.png" alt="模板存放位置"><br>模板导出Excel思路，主要是创建文件输入流对象，根据模板创建工作簿，因为之前都是setXXX<br>现在改成了getXXX，具体实现代码如下。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> XSSFWorkbook <span class="title">exportTemplate</span><span class="params">(String shipTime, List&lt;ContractProduct&gt; contractProductList)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 获取当前日期并格式化</span></span><br><span class="line">        Date date = <span class="keyword">new</span> Date();</span><br><span class="line">        SimpleDateFormat sdf = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyy-MM"</span>);</span><br><span class="line">        String nowTime = sdf.format(date);</span><br><span class="line">        <span class="comment">// 通用变量</span></span><br><span class="line">        <span class="keyword">int</span> rowNo = <span class="number">0</span>,cellNo = <span class="number">1</span>;</span><br><span class="line">        Row row = <span class="keyword">null</span>;</span><br><span class="line">        Cell cell = <span class="keyword">null</span>;</span><br><span class="line">        <span class="comment">// 根据相对路径找绝对路径</span></span><br><span class="line">        String path = <span class="string">"D:\\IdeaProject\\employee-manager\\web\\resources\\make\\tOUTPRODUCT.xls"</span>;</span><br><span class="line">        <span class="comment">//  创建工作簿</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 创建文件的输入流对象</span></span><br><span class="line">            InputStream is = <span class="keyword">new</span> FileInputStream(path);</span><br><span class="line">            XSSFWorkbook workbook = <span class="keyword">new</span> XSSFWorkbook(is);</span><br><span class="line">            <span class="comment">// 读取工作表</span></span><br><span class="line">            Sheet sheet = workbook.getSheetAt(<span class="number">0</span>);</span><br><span class="line">            row = sheet.getRow(rowNo++);</span><br><span class="line">            row.getCell(cellNo);</span><br><span class="line">            cell.setCellValue(shipTime.replace(<span class="string">"-0"</span>,<span class="string">"年"</span>).replace(<span class="string">"-"</span>,<span class="string">"年"</span>)+<span class="string">"月份出货表"</span>);</span><br><span class="line">            <span class="comment">// 小标题 跳过第二行</span></span><br><span class="line">            rowNo++;</span><br><span class="line">            <span class="comment">// 读取第三行</span></span><br><span class="line">            row = sheet.getRow(rowNo);</span><br><span class="line">            <span class="comment">//获取每个单元格的样式</span></span><br><span class="line">            CellStyle customCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle orderNoCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle productNoCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle CellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle cNumbercustomCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle factoryCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle deliveryCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle shipTimeCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">            CellStyle tradeTermsCellStyle = row.getCell(cellNo++).getCellStyle();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>以上就是模板打印方法，下面介绍下workBook接口中的实现类。</p>
+<p>###区别：<br>用JavaPOI导出Excel时，我们会考虑到Excel版本及数据量的问题。针对不同的Excel版本，要采用不同的工具类。</p>
+<p>HSSFWorkbook:是操作Excel2003以前（包括2003）的版本，扩展名是.xls；</p>
+<p>XSSFWorkbook:是操作Excel2007的版本，扩展名是.xlsx；</p>
+<p>对于不同版本的EXCEL文档要使用不同的工具类，如果使用错了，会提示如下错误信息。</p>
+<p>org.apache.poi.openxml4j.exceptions.InvalidOperationException</p>
+<p>org.apache.poi.poifs.filesystem.OfficeXmlFileException</p>
+<p>从POI 3.8版本开始，提供了一种基于XSSF的低内存占用的API—-SXSSF</p>
+<p>当数据量超出65536条后，在使用HSSFWorkbook或XSSFWorkbook，程序会报OutOfMemoryError：Javaheap space;内存溢出错误。这时应该用SXSSFworkbook。</p>
+<h3 id="注意："><a href="#注意：" class="headerlink" title="注意："></a>注意：</h3><p>针对 SXSSF Beta 3.8下，会有临时文件产生，比如：<br>poi-sxssf-sheet4654655121378979321.xml<br>文件位置：java.io.tmpdir这个环境变量下的位置<br>Windows 7下是C:\Users\xxxxxAppData\Local\Temp<br>Linux下是 /var/tmp/<br>要根据实际情况，看是否删除这些临时文件</p>
+<p>与XSSF的对比<br>在一个时间点上，只可以访问一定数量的数据<br>不再支持Sheet.clone()<br>不再支持公式的求值</p>
+<p>在使用Excel模板下载数据时将不能动态改变表头，因为这种方式已经提前把excel写到硬盘的了就不能再改了</p>
+<h3 id="简单定义"><a href="#简单定义" class="headerlink" title="简单定义"></a>简单定义</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">input = classPathResource.getInputStream();</span><br><span class="line">           input = classPathResource.getInputStream();</span><br><span class="line">            Workbook wb = <span class="keyword">null</span>;</span><br><span class="line">            HSSFWorkbook hwb=<span class="keyword">null</span>;</span><br><span class="line">            XSSFWorkbook xwb=<span class="keyword">null</span>;</span><br><span class="line">            SXSSFWorkbook swb = <span class="keyword">null</span>;</span><br><span class="line">            Sheet sh = <span class="keyword">null</span>;</span><br><span class="line">            wb = WorkbookFactory.create(input);</span><br><span class="line">            hwb = (HSSFWorkbook) WorkbookFactory.create(input);</span><br><span class="line">            xwb = (XSSFWorkbook) WorkbookFactory.create(input);</span><br><span class="line">            swb = <span class="keyword">new</span> SXSSFWorkbook(xwb,<span class="number">1000</span>);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -451,15 +459,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/2018/05/24/Java-使用-jacob-将微软office中-word-excel-ppt-jpg转成pdf/" rel="next" title="Java 使用 jacob 将微软office中 word excel ppt转成pdf">
+                <i class="fa fa-chevron-left"></i> Java 使用 jacob 将微软office中 word excel ppt转成pdf
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/13/你好-hexo/" rel="prev" title="你好,hexo">
-                你好,hexo <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -618,7 +626,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Quick-Start"><span class="nav-number">1.</span> <span class="nav-text">Quick Start</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Create-a-new-post"><span class="nav-number">1.1.</span> <span class="nav-text">Create a new post</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Run-server"><span class="nav-number">1.2.</span> <span class="nav-text">Run server</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Generate-static-files"><span class="nav-number">1.3.</span> <span class="nav-text">Generate static files</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Deploy-to-remote-sites"><span class="nav-number">1.4.</span> <span class="nav-text">Deploy to remote sites</span></a></li></ol></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#注意："><span class="nav-number">1.1.</span> <span class="nav-text">注意：</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#简单定义"><span class="nav-number">1.2.</span> <span class="nav-text">简单定义</span></a></li></ol></li></ol></div>
             
 
           </div>
