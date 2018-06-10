@@ -97,7 +97,9 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/reflection.png">
 <meta property="og:image" content="http://yoursite.com/images/jdkapi.png">
-<meta property="og:updated_time" content="2018-05-31T23:35:13.970Z">
+<meta property="og:image" content="http://yoursite.com/images/jdkmethod.png">
+<meta property="og:image" content="http://yoursite.com/images/jdkgetclass.png">
+<meta property="og:updated_time" content="2018-06-01T13:48:47.834Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java从零开始—反射  2018-06-01">
 <meta name="twitter:description" content="从这篇文章之后，记录自己从零开始学习Java基础。时光是美好的，我们应该去尽情地去享受。改变，永远不嫌晚，就怕你不去改变，而在原地踏步。以后写的文章，都是参考网上资料。会写明出处这篇文章主要是反射，写文章的目的，主要是供自己方便查看。也会给别人带来方便。">
@@ -345,7 +347,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  633
+                  1,115
                 </span>
               
 
@@ -361,7 +363,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  4
                 </span>
               
             </div>
@@ -383,11 +385,16 @@
 
       
         <p>从这篇文章之后，记录自己从零开始学习Java基础。时光是美好的，我们应该去尽情地去享受。<br>改变，永远不嫌晚，就怕你不去改变，而在原地踏步。以后写的文章，都是参考网上资料。会写明出处<br>这篇文章主要是反射，写文章的目的，主要是供自己方便查看。也会给别人带来方便。<br><a id="more"></a></p>
-<p><font color="red" face="黑体" size="30">反射是框架设计的灵魂</font><br>    <font color="red" face="黑体" size="10">（使用的前提条件：必须先得到代表的字节码的Class，Class类用于表示.class文件（字节码））</font></p>
+<p><font color="red" face="黑体" size="5">反射是框架设计的灵魂</font><br>    <font color="red" size="3">（使用的前提条件：必须先得到代表的字节码的Class，Class类用于表示.class文件（字节码））</font></p>
 <h1 id="一、反射的概述"><a href="#一、反射的概述" class="headerlink" title="一、反射的概述"></a>一、反射的概述</h1><p>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。<br>要想解剖一个类,必须先要获取到该类的字节码文件对象。而解剖使用的就是Class类中的方法.所以先要获取到每一个字节码文件对应的Class类型的对象.</p>
-<p><font face="黑体" size="10">以上的总结就是什么是反射</font></p>
-<p><font color="red" face="黑体" size="10">反射就是把java类中的各种成分映射成一个个的Java对象</font><br>例如：一个类有：成员变量、方法、构造方法、包等等信息，利用反射技术可以对一个类进行解剖，把个个组成部分映射成一个个对象。<br>     （其实：一个类中这些成员方法、构造方法、在加入类中都有一个类来描述）<br>如图是类的正常加载过程：反射的原理在与class对象。<br>熟悉一下加载的时候：Class对象的由来是将class文件读入内存，并为之创建一个Class对象。<br><img src="/images/reflection.png" alt="反射原理图"><br>其中这个Class对象很特殊。我们先了解一下这个Class类</p>
+<p>以上的总结就是什么是反射</p>
+<p><font color="red" face="黑体" size="4">反射就是把java类中的各种成分映射成一个个的Java对象</font><br>例如：一个类有：成员变量、方法、构造方法、包等等信息，利用反射技术可以对一个类进行解剖，把个个组成部分映射成一个个对象。<br>     （其实：一个类中这些成员方法、构造方法、在加入类中都有一个类来描述）<br>如图是类的正常加载过程：反射的原理在与class对象。<br>熟悉一下加载的时候：Class对象的由来是将class文件读入内存，并为之创建一个Class对象。<br><img src="/images/reflection.png" alt="反射原理图"><br>其中这个Class对象很特殊。我们先了解一下这个Class类</p>
 <h1 id="二、查看Class类在java中的api详解（1-6的API）"><a href="#二、查看Class类在java中的api详解（1-6的API）" class="headerlink" title="二、查看Class类在java中的api详解（1.6的API）"></a>二、查看Class类在java中的api详解（1.6的API）</h1><p><img src="/images/jdkapi.png" alt="jdkClass&lt;T&gt;对象"><br>    <font color="red">Class</font> 类的实例表示正在运行的 Java 应用程序中的类和接口。也就是jvm中有N多的实例每个类都有该<font color="red">Class</font>对象。（包括基本数据类型）<br>Class 没有公共构造方法。<font color="red">Class</font> 对象是在加载类时由 Java 虚拟机以及通过调用类加载器中的<font color="red">defineClass </font> 方法自动构造的。也就是这不需要我们自己去处理创建，JVM已经帮我们创建好了。</p>
+<p>没有公共的构造方法，方法共有64个太多了。下面用到哪个就详解哪个吧<br><img src="/images/jdkmethod.png" alt="jdkClass&lt;T&gt;对象"> </p>
+<h1 id="三、反射的使用-这里使用Student类做演示"><a href="#三、反射的使用-这里使用Student类做演示" class="headerlink" title="三、反射的使用(这里使用Student类做演示)"></a>三、反射的使用(这里使用Student类做演示)</h1><p>先编写Student类</p>
+<h2 id="1、-获取Class对象的三种方式"><a href="#1、-获取Class对象的三种方式" class="headerlink" title="1、 获取Class对象的三种方式"></a>1、 获取Class对象的三种方式</h2><p>1.1 Object ——&gt; getClass();<br>1.2 任何数据类型（包括基本数据类型）都有一个“静态”的class属性<br>1.3 通过Class类的静态方法：forName（String  className）(常用)</p>
+<p>其中1.1是因为Object类中的getClass方法、因为所有类都继承Object类。从而调用Object类来获取<br><img src="/images/jdkgetclass.png" alt="jdkClass&lt;T&gt;对象"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package top.wycfight.study;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @Author: wycfight@163.com</span><br><span class="line"> * @Description: Java基础-反射</span><br><span class="line"> *   获取Class对象的三种方式</span><br><span class="line"> *   1. Object ——&gt; getClass();</span><br><span class="line"> *   2. 任何数据类型 (包括基本数据类型) 都有一个<span class="string">"静态"</span>的class属性</span><br><span class="line"> *   3. 通过Class类的静态方法： forName(String className)(常用)</span><br><span class="line"> * @Date: Created <span class="keyword">in</span> 6:43 2018/6/1</span><br><span class="line"> * @Modified By:</span><br><span class="line"> */</span><br><span class="line">public class Reflection &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 第一种方式获取 new 会残生一个Student对象 和Class对象</span><br><span class="line">        Student student = new Student();</span><br><span class="line">        Class stuClass = student.getClass();</span><br><span class="line">        System.out.println(stuClass.getName());</span><br><span class="line"></span><br><span class="line">        // 第二种方式获取 class 对象</span><br><span class="line">        Class stuClass2 = Student.class;</span><br><span class="line">        // 判断两种方式获取到的Class对象是否是同一个</span><br><span class="line">        System.out.println(stuClass2.equals(stuClass));</span><br><span class="line"></span><br><span class="line">        // 第三种方式获取 （常用）</span><br><span class="line">        try &#123;</span><br><span class="line">            // forName 必须使用 包名.类名的形式</span><br><span class="line">            Class stuClass3  = Class.forName(<span class="string">"top.wycfight.study.Student"</span>);</span><br><span class="line">            // 判断三种获取的是否是通过一个对象</span><br><span class="line">            System.out.println(stuClass3 == stuClass2);</span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><font size="4">注意：在运行期间，一个类，只有一个Class对象产生。</font><br>三种方式常用第三种，第一种对象都有了还要反射干什么。第二种需要导入类的包，依赖太强，不导包就抛编译错误。一般都第三种，一个字符串可以传入也可写在配置文件中等多种方法。</p>
 
       
     </div>
@@ -617,7 +624,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、反射的概述"><span class="nav-number">1.</span> <span class="nav-text">一、反射的概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、查看Class类在java中的api详解（1-6的API）"><span class="nav-number">2.</span> <span class="nav-text">二、查看Class类在java中的api详解（1.6的API）</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、反射的概述"><span class="nav-number">1.</span> <span class="nav-text">一、反射的概述</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、查看Class类在java中的api详解（1-6的API）"><span class="nav-number">2.</span> <span class="nav-text">二、查看Class类在java中的api详解（1.6的API）</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、反射的使用-这里使用Student类做演示"><span class="nav-number">3.</span> <span class="nav-text">三、反射的使用(这里使用Student类做演示)</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#1、-获取Class对象的三种方式"><span class="nav-number">3.1.</span> <span class="nav-text">1、 获取Class对象的三种方式</span></a></li></ol></li></ol></div>
             
 
           </div>
@@ -652,7 +659,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">3.8k</span>
+    <span title="Site words total count">4.3k</span>
   
 </div>
 
@@ -671,7 +678,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共3.8k字</span>
+  <span class="post-count">博客全站共4.3k字</span>
 </div>
 
         
