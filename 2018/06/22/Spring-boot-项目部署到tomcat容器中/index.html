@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="hexo,github,npm,java," />
+  <meta name="keywords" content="SpringBoot," />
 
 
 
@@ -88,18 +88,23 @@
 
 
 
-<meta name="description" content="使用Hexo + github 搭建博客是件开心的事情">
-<meta name="keywords" content="hexo,github,npm,java">
+<meta name="description" content="把spring-boot项目按照平常的web项目一样发布到tomcat容器下">
+<meta name="keywords" content="SpringBoot">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好,hexo">
-<meta property="og:url" content="http://yoursite.com/2018/05/13/你好-hexo/index.html">
+<meta property="og:title" content="Spring boot 项目部署到tomcat容器中">
+<meta property="og:url" content="http://yoursite.com/2018/06/22/Spring-boot-项目部署到tomcat容器中/index.html">
 <meta property="og:site_name" content="codingAc&#39;s blog">
-<meta property="og:description" content="使用Hexo + github 搭建博客是件开心的事情">
+<meta property="og:description" content="把spring-boot项目按照平常的web项目一样发布到tomcat容器下">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-14T12:46:44.692Z">
+<meta property="og:image" content="http://yoursite.com/images/springbootpom.png">
+<meta property="og:image" content="http://yoursite.com/images/springbootpom1.png">
+<meta property="og:image" content="http://yoursite.com/images/springbootpom2.png">
+<meta property="og:image" content="http://yoursite.com/images/springbootjava.png">
+<meta property="og:updated_time" content="2018-06-27T23:39:22.370Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好,hexo">
-<meta name="twitter:description" content="使用Hexo + github 搭建博客是件开心的事情">
+<meta name="twitter:title" content="Spring boot 项目部署到tomcat容器中">
+<meta name="twitter:description" content="把spring-boot项目按照平常的web项目一样发布到tomcat容器下">
+<meta name="twitter:image" content="http://yoursite.com/images/springbootpom.png">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/13/你好-hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/22/Spring-boot-项目部署到tomcat容器中/"/>
 
 
 
 
 
-  <title>你好,hexo | codingAc's blog</title>
+  <title>Spring boot 项目部署到tomcat容器中 | codingAc's blog</title>
   
 
 
@@ -282,7 +287,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/你好-hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/22/Spring-boot-项目部署到tomcat容器中/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Achun">
@@ -299,7 +304,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">你好,hexo</h1>
+          <h1 class="post-title" itemprop="name headline">Spring boot 项目部署到tomcat容器中</h1>
         
 
         <div class="post-meta">
@@ -311,8 +316,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T19:22:58+08:00">
-                2018-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-22T08:44:34+08:00">
+                2018-06-22
               </time>
             
 
@@ -321,28 +326,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习ing/" itemprop="url" rel="index">
-                    <span itemprop="name">学习ing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -365,7 +348,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  15
+                  453
                 </span>
               
 
@@ -381,7 +364,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -402,7 +385,21 @@
       
 
       
-        <p>使用Hexo + github 搭建博客是件开心的事情<br><a id="more"></a></p>
+        <p>把spring-boot项目按照平常的web项目一样发布到tomcat容器下<br><a id="more"></a></p>
+<h1 id="一、修改打包形式"><a href="#一、修改打包形式" class="headerlink" title="一、修改打包形式"></a>一、修改打包形式</h1><p>在pom.xml里设置 <font color="red"><packaging>war</packaging></font><br><img src="/images/springbootpom.png" alt="SpringBoot中POM文件"></p>
+<h1 id="二、移除嵌入式tomcat插件"><a href="#二、移除嵌入式tomcat插件" class="headerlink" title="二、移除嵌入式tomcat插件"></a>二、移除嵌入式tomcat插件</h1><p>在pom.xml里找到<font color="red">spring-boot-starter-web</font>依赖节点，在其中添加如下代码，<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;spring-boot-starter-web&lt;/artifactId&gt;</span><br><span class="line">    &lt;!-- 移除嵌入式tomcat插件 --&gt;</span><br><span class="line">    &lt;exclusions&gt;</span><br><span class="line">        &lt;exclusion&gt;</span><br><span class="line">            &lt;groupId&gt;org.springframework.boot&lt;/groupId&gt;</span><br><span class="line">            &lt;artifactId&gt;spring-boot-starter-tomcat&lt;/artifactId&gt;</span><br><span class="line">        &lt;/exclusion&gt;</span><br><span class="line">    &lt;/exclusions&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/springbootpom1.png" alt="SpringBoot中POM文件"></p>
+<h1 id="三、添加servlet-api的依赖"><a href="#三、添加servlet-api的依赖" class="headerlink" title="三、添加servlet-api的依赖"></a>三、添加servlet-api的依赖</h1><p>下面两种方式都可以，任选其一<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;javax.servlet&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;javax.servlet-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.1.0&lt;/version&gt;</span><br><span class="line">    &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.tomcat&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;tomcat-servlet-api&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;8.0.36&lt;/version&gt;</span><br><span class="line">    &lt;scope&gt;provided&lt;/scope&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure>
+<p><img src="/images/springbootpom2.png" alt="SpringBoot中POM文件"></p>
+<h1 id="四、修改启动类，并重写初始化方法"><a href="#四、修改启动类，并重写初始化方法" class="headerlink" title="四、修改启动类，并重写初始化方法"></a>四、修改启动类，并重写初始化方法</h1><p>我们平常用main方法启动的方式，都有一个App的启动类，代码如下：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SpringBootApplication</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">DemoApplication</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        SpringApplication.run(DemoApplication.class, args);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>我们需要类似于web.xml的配置方式来启动spring上下文了，在Application类的同级添加一个SpringBootStartApplication类，其代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * 修改启动类，继承 SpringBootServletInitializer 并重写 configure 方法</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SpringBootStartApplication</span> <span class="keyword">extends</span> <span class="title">SpringBootServletInitializer</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">protected</span> SpringApplicationBuilder <span class="title">configure</span><span class="params">(SpringApplicationBuilder builder)</span> </span>&#123;</span><br><span class="line">        <span class="comment">// 注意这里要指向原先用main方法执行的Application启动类</span></span><br><span class="line">        <span class="keyword">return</span> builder.sources(Application.class);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><img src="/images/springbootjava.png" alt="SpringBoot中Java文件"></p>
+<h1 id="五、打包部署"><a href="#五、打包部署" class="headerlink" title="五、打包部署"></a>五、打包部署</h1><p>在项目根目录下（即包含pom.xml的目录），在命令行里输入： </p>
+<p><font color="red">mvn clean package</font>即可， 等待打包完成，出现<font color="red">[INFO] BUILD SUCCESS?</font>即为打包成功。<br>然后把target目录下的war包放到tomcat的webapps目录下，启动tomcat，即可自动解压部署。<br>最后在浏览器中输入</p>
+<p><font color="red"><a href="http://localhost:[端口号]/[打包项目名]/" target="_blank" rel="noopener">http://localhost:[端口号]/[打包项目名]/</a><font></font></font></p>
+<p>发布成功</p>
+<p>搬运来自：<a href="https://blog.csdn.net/javahighness/article/details/52515226" target="_blank" rel="noopener">https://blog.csdn.net/javahighness/article/details/52515226</a></p>
 
       
     </div>
@@ -458,13 +455,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
-          
-            <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
-          
-            <a href="/tags/npm/" rel="tag"><i class="fa fa-tag"></i> npm</a>
-          
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+            <a href="/tags/SpringBoot/" rel="tag"><i class="fa fa-tag"></i> SpringBoot</a>
           
         </div>
       
@@ -477,8 +468,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/06/10/从零学习—MySQL/" rel="next" title="从零学习—MySQL">
+                <i class="fa fa-chevron-left"></i> 从零学习—MySQL
               </a>
             
           </div>
@@ -486,10 +477,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/05/15/测试编写文章/" rel="prev" title="测试编写文章">
-                测试编写文章 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -541,8 +528,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -629,6 +625,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#一、修改打包形式"><span class="nav-number">1.</span> <span class="nav-text">一、修改打包形式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#二、移除嵌入式tomcat插件"><span class="nav-number">2.</span> <span class="nav-text">二、移除嵌入式tomcat插件</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#三、添加servlet-api的依赖"><span class="nav-number">3.</span> <span class="nav-text">三、添加servlet-api的依赖</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#四、修改启动类，并重写初始化方法"><span class="nav-number">4.</span> <span class="nav-text">四、修改启动类，并重写初始化方法</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#五、打包部署"><span class="nav-number">5.</span> <span class="nav-text">五、打包部署</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
