@@ -5,7 +5,7 @@
   
 
 
-<html class="theme-next pisces use-motion" lang="zh-Hans">
+<html class="theme-next muse use-motion" lang="zh-Hans">
 <head>
   <meta charset="UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="hexo,github,npm,java," />
+  <meta name="keywords" content="JS," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="使用Hexo + github 搭建博客是件开心的事情">
-<meta name="keywords" content="hexo,github,npm,java">
+<meta name="description" content="一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS">
+<meta name="keywords" content="JS">
 <meta property="og:type" content="article">
-<meta property="og:title" content="你好,hexo">
-<meta property="og:url" content="http://yoursite.com/2018/05/13/你好-hexo/index.html">
+<meta property="og:title" content="JS实现输入模糊查询下拉选">
+<meta property="og:url" content="http://yoursite.com/2018/06/28/JS实现输入模糊查询下拉选/index.html">
 <meta property="og:site_name" content="codingAc&#39;s blog">
-<meta property="og:description" content="使用Hexo + github 搭建博客是件开心的事情">
+<meta property="og:description" content="一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-05-14T12:46:44.692Z">
+<meta property="og:updated_time" content="2018-06-28T14:22:27.904Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="你好,hexo">
-<meta name="twitter:description" content="使用Hexo + github 搭建博客是件开心的事情">
+<meta name="twitter:title" content="JS实现输入模糊查询下拉选">
+<meta name="twitter:description" content="一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS">
 
 
 
@@ -107,7 +107,7 @@
   var NexT = window.NexT || {};
   var CONFIG = {
     root: '/',
-    scheme: 'Pisces',
+    scheme: 'Muse',
     version: '5.1.4',
     sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
     fancybox: true,
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/05/13/你好-hexo/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/28/JS实现输入模糊查询下拉选/"/>
 
 
 
 
 
-  <title>你好,hexo | codingAc's blog</title>
+  <title>JS实现输入模糊查询下拉选 | codingAc's blog</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/05/13/你好-hexo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/28/JS实现输入模糊查询下拉选/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Achun">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">你好,hexo</h1>
+          <h1 class="post-title" itemprop="name headline">JS实现输入模糊查询下拉选</h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-05-13T19:22:58+08:00">
-                2018-05-13
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-28T11:24:32+08:00">
+                2018-06-28
               </time>
             
 
@@ -321,28 +321,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/学习ing/" itemprop="url" rel="index">
-                    <span itemprop="name">学习ing</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -365,7 +343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  15
+                  421
                 </span>
               
 
@@ -381,7 +359,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  1
+                  2
                 </span>
               
             </div>
@@ -402,7 +380,11 @@
       
 
       
-        <p>使用Hexo + github 搭建博客是件开心的事情<br><a id="more"></a></p>
+        <p>一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS<br><a id="more"></a></p>
+<h1 id="HTML页面"><a href="#HTML页面" class="headerlink" title="HTML页面"></a>HTML页面</h1><p>本次主要是实现输入之后模糊查询下拉框中显示input输入框中模糊的内容，具体html代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row cl"</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"form-label col-xs-4 col-sm-3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">                       <span class="attr">class</span>=<span class="string">"c-red"</span>&gt;</span>*<span class="tag">&lt;/<span class="name">span</span>&gt;</span>物品名称：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"formControls col-xs-4 col-sm-3"</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"makeupCo"</span> <span class="attr">id</span>=<span class="string">"makeupCo"</span> <span class="attr">class</span>=<span class="string">"makeinp"</span> <span class="attr">onfocus</span>=<span class="string">"setinput()"</span></span></span><br><span class="line"><span class="tag">                          <span class="attr">onblur</span>=<span class="string">"setinput();"</span> <span class="attr">onmouseup</span>=<span class="string">"setinput();"</span> <span class="attr">placeholder</span>=<span class="string">"请选择或输入"</span>/&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"select-box  f-14 conchildtype"</span> <span class="attr">name</span>=<span class="string">"consumableName.id"</span> <span class="attr">style</span>=<span class="string">"width: 300px"</span></span></span><br><span class="line"><span class="tag">                           <span class="attr">id</span>=<span class="string">"conchildtype"</span> <span class="attr">required</span>=<span class="string">"true"</span> <span class="attr">onchange</span>=<span class="string">"changeF(this)"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">count</span>=<span class="string">"-1"</span>&gt;</span>请选择<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">%--selected="selected"--%</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h1><p>首先当鼠标获取到焦点时触发setinput方法，onblur 事件会在对象失去焦点时发生。当在段落上松开鼠标按钮时执行 JavaScript：<br>具体setinput方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** input 改变 下拉选改变 可输入input */</span> </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setinput</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 把所有下拉选去掉</span></span><br><span class="line">     $(<span class="string">".conchildtype option"</span>).attr(<span class="string">'selected'</span>, <span class="literal">false</span>);</span><br><span class="line">     <span class="comment">// 获取物品名称的值</span></span><br><span class="line">     <span class="keyword">var</span> value = $(<span class="string">"#makeupCo"</span>).val();</span><br><span class="line">     <span class="comment">// 遍历下拉选</span></span><br><span class="line">     $(<span class="string">".conchildtype option"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="comment">// 下拉选的所有的值</span></span><br><span class="line">         <span class="keyword">var</span> selectstr = $(<span class="keyword">this</span>).text();</span><br><span class="line">         <span class="comment">//console.log(selectstr.indexOf(value) != -1);</span></span><br><span class="line">         <span class="keyword">if</span> (selectstr.indexOf(value, <span class="number">0</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">             <span class="comment">// 将下拉选的值选中</span></span><br><span class="line">             $(<span class="keyword">this</span>).prop(<span class="string">'selected'</span>, <span class="string">'selected'</span>);</span><br><span class="line">             <span class="comment">// console.log($(this).prop('selected'));</span></span><br><span class="line">             <span class="comment">// 找到则不在遍历 退出循环</span></span><br><span class="line">             <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
+<p>当改变下拉选的值，执行onchange里面的方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeF</span>(<span class="params">this_</span>) </span>&#123;</span><br><span class="line">      $(this_).prev(<span class="string">"input"</span>).val($(this_).find(<span class="string">"option:selected"</span>).text());</span><br><span class="line">      <span class="comment">//$("#conchildtype").css(&#123;"display":"none"&#125;);</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+<p>参考自： <a href="https://blog.csdn.net/sun2015_07_24/article/details/53023167" target="_blank" rel="noopener">https://blog.csdn.net/sun2015_07_24/article/details/53023167</a> 简单实用js——可输入可选择可模糊查询的select下拉</p>
 
       
     </div>
@@ -458,13 +440,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/hexo/" rel="tag"><i class="fa fa-tag"></i> hexo</a>
-          
-            <a href="/tags/github/" rel="tag"><i class="fa fa-tag"></i> github</a>
-          
-            <a href="/tags/npm/" rel="tag"><i class="fa fa-tag"></i> npm</a>
-          
-            <a href="/tags/java/" rel="tag"><i class="fa fa-tag"></i> java</a>
+            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
           
         </div>
       
@@ -477,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/05/13/hello-world/" rel="next" title="Hello World">
-                <i class="fa fa-chevron-left"></i> Hello World
+              <a href="/2018/06/28/云MAS-发送短信/" rel="next" title="云MAS 发送短信">
+                <i class="fa fa-chevron-left"></i> 云MAS 发送短信
               </a>
             
           </div>
@@ -487,8 +463,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/05/15/测试编写文章/" rel="prev" title="测试编写文章">
-                测试编写文章 <i class="fa fa-chevron-right"></i>
+              <a href="/2018/06/28/JS中return的用法/" rel="prev" title="JS中return的用法">
+                JS中return的用法 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -541,8 +517,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -568,22 +553,13 @@
             
 
             
-              
-              
-              <div class="site-state-item site-state-categories">
-                
-                  <span class="site-state-item-count">1</span>
-                  <span class="site-state-item-name">分类</span>
-                
-              </div>
-            
 
             
               
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-count">4</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -630,6 +606,22 @@
       </section>
 
       
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML页面"><span class="nav-number">1.</span> <span class="nav-text">HTML页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS代码"><span class="nav-number">2.</span> <span class="nav-text">JS代码</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
 
       
 
@@ -658,7 +650,7 @@
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">6.3k</span>
+    <span title="Site words total count">8.7k</span>
   
 </div>
 
@@ -671,13 +663,13 @@
 
 
 
-  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Pisces</a> v5.1.4</div>
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
 
 
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共6.3k字</span>
+  <span class="post-count">博客全站共8.7k字</span>
 </div>
 
         
@@ -781,13 +773,6 @@
 
   
   
-
-
-  <script type="text/javascript" src="/js/src/affix.js?v=5.1.4"></script>
-
-  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.4"></script>
-
-
 
   
   <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
