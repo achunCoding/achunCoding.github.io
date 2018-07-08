@@ -75,7 +75,7 @@
 
 
 
-  <meta name="keywords" content="JS," />
+  <meta name="keywords" content="Hibernate," />
 
 
 
@@ -88,18 +88,18 @@
 
 
 
-<meta name="description" content="一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS">
-<meta name="keywords" content="JS">
+<meta name="description" content="最近刚开始接触Hibernate框架，不知道如何使用，现在也弄得迷迷糊糊的。使用一段时间，发现Hibernte中hql语句查询也是很方便，后来在网上查阅资料，发现也能用原生的sql查询。根据网上的资料，记录一下自己学习Hibernate框架，以后也可以方便自己查看。">
+<meta name="keywords" content="Hibernate">
 <meta property="og:type" content="article">
-<meta property="og:title" content="JS实现输入模糊查询下拉选">
-<meta property="og:url" content="http://yoursite.com/2018/06/28/JS实现输入模糊查询下拉选/index.html">
+<meta property="og:title" content="Hibernate 中利用Sql进行查询">
+<meta property="og:url" content="http://yoursite.com/2018/06/29/Hibernate-中利用Sql进行查询/index.html">
 <meta property="og:site_name" content="codingAc&#39;s blog">
-<meta property="og:description" content="一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS">
+<meta property="og:description" content="最近刚开始接触Hibernate框架，不知道如何使用，现在也弄得迷迷糊糊的。使用一段时间，发现Hibernte中hql语句查询也是很方便，后来在网上查阅资料，发现也能用原生的sql查询。根据网上的资料，记录一下自己学习Hibernate框架，以后也可以方便自己查看。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-28T14:22:27.904Z">
+<meta property="og:updated_time" content="2018-06-30T09:04:56.466Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="JS实现输入模糊查询下拉选">
-<meta name="twitter:description" content="一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS">
+<meta name="twitter:title" content="Hibernate 中利用Sql进行查询">
+<meta name="twitter:description" content="最近刚开始接触Hibernate框架，不知道如何使用，现在也弄得迷迷糊糊的。使用一段时间，发现Hibernte中hql语句查询也是很方便，后来在网上查阅资料，发现也能用原生的sql查询。根据网上的资料，记录一下自己学习Hibernate框架，以后也可以方便自己查看。">
 
 
 
@@ -129,13 +129,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/28/JS实现输入模糊查询下拉选/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/06/29/Hibernate-中利用Sql进行查询/"/>
 
 
 
 
 
-  <title>JS实现输入模糊查询下拉选 | codingAc's blog</title>
+  <title>Hibernate 中利用Sql进行查询 | codingAc's blog</title>
   
 
 
@@ -282,7 +282,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/28/JS实现输入模糊查询下拉选/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/29/Hibernate-中利用Sql进行查询/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Achun">
@@ -299,7 +299,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">JS实现输入模糊查询下拉选</h1>
+          <h1 class="post-title" itemprop="name headline">Hibernate 中利用Sql进行查询</h1>
         
 
         <div class="post-meta">
@@ -311,8 +311,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-28T11:24:32+08:00">
-                2018-06-28
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-29T09:20:52+08:00">
+                2018-06-29
               </time>
             
 
@@ -343,7 +343,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  421
+                  676
                 </span>
               
 
@@ -359,7 +359,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  2
+                  3
                 </span>
               
             </div>
@@ -380,11 +380,11 @@
       
 
       
-        <p>一开始没有接触过JS，今天看了一些JS，记录一下自己学习JS的过程吧。不是太懂JS<br><a id="more"></a></p>
-<h1 id="HTML页面"><a href="#HTML页面" class="headerlink" title="HTML页面"></a>HTML页面</h1><p>本次主要是实现输入之后模糊查询下拉框中显示input输入框中模糊的内容，具体html代码如下：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row cl"</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"form-label col-xs-4 col-sm-3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">                       <span class="attr">class</span>=<span class="string">"c-red"</span>&gt;</span>*<span class="tag">&lt;/<span class="name">span</span>&gt;</span>物品名称：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"formControls col-xs-4 col-sm-3"</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"makeupCo"</span> <span class="attr">id</span>=<span class="string">"makeupCo"</span> <span class="attr">class</span>=<span class="string">"makeinp"</span> <span class="attr">onfocus</span>=<span class="string">"setinput()"</span></span></span><br><span class="line"><span class="tag">                          <span class="attr">onblur</span>=<span class="string">"setinput();"</span> <span class="attr">onmouseup</span>=<span class="string">"setinput();"</span> <span class="attr">placeholder</span>=<span class="string">"请选择或输入"</span>/&gt;</span></span><br><span class="line">                   <span class="tag">&lt;<span class="name">select</span> <span class="attr">class</span>=<span class="string">"select-box  f-14 conchildtype"</span> <span class="attr">name</span>=<span class="string">"consumableName.id"</span> <span class="attr">style</span>=<span class="string">"width: 300px"</span></span></span><br><span class="line"><span class="tag">                           <span class="attr">id</span>=<span class="string">"conchildtype"</span> <span class="attr">required</span>=<span class="string">"true"</span> <span class="attr">onchange</span>=<span class="string">"changeF(this)"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">option</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">count</span>=<span class="string">"-1"</span>&gt;</span>请选择<span class="tag">&lt;/<span class="name">option</span>&gt;</span></span><br><span class="line">                       <span class="tag">&lt;<span class="name">%--selected="selected"--%</span>&gt;</span></span><br><span class="line">                   <span class="tag">&lt;/<span class="name">select</span>&gt;</span></span><br><span class="line">               <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">           <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
-<h1 id="JS代码"><a href="#JS代码" class="headerlink" title="JS代码"></a>JS代码</h1><p>首先当鼠标获取到焦点时触发setinput方法，onblur 事件会在对象失去焦点时发生。当在段落上松开鼠标按钮时执行 JavaScript：<br>具体setinput方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/** input 改变 下拉选改变 可输入input */</span> </span><br><span class="line"> <span class="function"><span class="keyword">function</span> <span class="title">setinput</span>(<span class="params"></span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">     <span class="comment">// 把所有下拉选去掉</span></span><br><span class="line">     $(<span class="string">".conchildtype option"</span>).attr(<span class="string">'selected'</span>, <span class="literal">false</span>);</span><br><span class="line">     <span class="comment">// 获取物品名称的值</span></span><br><span class="line">     <span class="keyword">var</span> value = $(<span class="string">"#makeupCo"</span>).val();</span><br><span class="line">     <span class="comment">// 遍历下拉选</span></span><br><span class="line">     $(<span class="string">".conchildtype option"</span>).each(<span class="function"><span class="keyword">function</span> (<span class="params"></span>) </span>&#123;</span><br><span class="line">         <span class="comment">// 下拉选的所有的值</span></span><br><span class="line">         <span class="keyword">var</span> selectstr = $(<span class="keyword">this</span>).text();</span><br><span class="line">         <span class="comment">//console.log(selectstr.indexOf(value) != -1);</span></span><br><span class="line">         <span class="keyword">if</span> (selectstr.indexOf(value, <span class="number">0</span>) != <span class="number">-1</span>) &#123;</span><br><span class="line">             <span class="comment">// 将下拉选的值选中</span></span><br><span class="line">             $(<span class="keyword">this</span>).prop(<span class="string">'selected'</span>, <span class="string">'selected'</span>);</span><br><span class="line">             <span class="comment">// console.log($(this).prop('selected'));</span></span><br><span class="line">             <span class="comment">// 找到则不在遍历 退出循环</span></span><br><span class="line">             <span class="keyword">return</span> <span class="literal">false</span>;</span><br><span class="line">         &#125;</span><br><span class="line">     &#125;);</span><br><span class="line"> &#125;</span><br></pre></td></tr></table></figure></p>
-<p>当改变下拉选的值，执行onchange里面的方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">function</span> <span class="title">changeF</span>(<span class="params">this_</span>) </span>&#123;</span><br><span class="line">      $(this_).prev(<span class="string">"input"</span>).val($(this_).find(<span class="string">"option:selected"</span>).text());</span><br><span class="line">      <span class="comment">//$("#conchildtype").css(&#123;"display":"none"&#125;);</span></span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
-<p>参考自： <a href="https://blog.csdn.net/sun2015_07_24/article/details/53023167" target="_blank" rel="noopener">https://blog.csdn.net/sun2015_07_24/article/details/53023167</a> 简单实用js——可输入可选择可模糊查询的select下拉</p>
+        <p>最近刚开始接触Hibernate框架，不知道如何使用，现在也弄得迷迷糊糊的。使用一段时间，发现Hibernte中hql语句查询也是很方便，后来在网上查阅资料，发现也能用原生的sql查询。<br>根据网上的资料，记录一下自己学习Hibernate框架，以后也可以方便自己查看。<br><a id="more"></a></p>
+<h1 id="Hibernate-查询方式"><a href="#Hibernate-查询方式" class="headerlink" title="Hibernate 查询方式"></a>Hibernate 查询方式</h1><p>hibernate的查询方式有HQL,Cretiria和SQL.<br>hql查询面向对象的语句风格确实要简洁一些(只是那么一点),<br>cretiria本人目前没在项目中使用过.<br>有一半的时候, 我在Hibernate框架中使用的是SQL查询,<br>简单,可控, 原生. 使用起来风格原始,简单有效, 不增加学习成本,且利于多人开发的维护. </p>
+<h1 id="代码部分"><a href="#代码部分" class="headerlink" title="代码部分"></a>代码部分</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br></pre></td><td class="code"><pre><span class="line">Service层代码</span><br><span class="line"><span class="keyword">public</span> List&lt;Map&lt;String,Object&gt;&gt; findAbandoned2(String name ,String  kjyear) &#123;</span><br><span class="line">        <span class="keyword">if</span> (ToolStr.isEmpty(name) &amp;&amp; ToolStr.isEmpty(kjyear))</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        Map&lt;String , Object&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        Map&lt;String , Object&gt; params2 = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">        params2.put(<span class="string">" consumableName.name like "</span>,name);</span><br><span class="line">        params2.put(<span class="string">" consumableAudit = "</span> ,<span class="number">1</span> );</span><br><span class="line">        List&lt;Consumables&gt; conlist = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        conlist.addAll(     consumablesService.find4Params(params2));</span><br><span class="line">        List&lt;Long&gt; listIds = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        listIds.addAll(conlist.stream().map(Consumables::getId).collect(Collectors.toList()));</span><br><span class="line">        StringBuffer bs = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">        listIds.forEach( id -&gt; &#123;</span><br><span class="line">            bs.append(id + <span class="string">","</span>);</span><br><span class="line">        &#125;);</span><br><span class="line">        String sql = <span class="string">"SELECT\n"</span> +</span><br><span class="line">                <span class="string">"chejian.id 购入车间id,\n"</span> +</span><br><span class="line">                <span class="string">"chejian.`name` 购入者车间,\n"</span> +</span><br><span class="line">                <span class="string">"ren.name 购入者,\n"</span> +</span><br><span class="line">                <span class="string">"wupin.updateTime 购入日期,\n"</span> +</span><br><span class="line">                <span class="string">"wupin.price 购入单价,\n"</span> +</span><br><span class="line">                <span class="string">"wupin.maxNum 购入数量,\n"</span> +</span><br><span class="line">                <span class="string">"wupin.totalAmount 购入金额,\n"</span> +</span><br><span class="line">                <span class="string">"(wupin.maxNum-wupin.num) 领取数量\n"</span> +</span><br><span class="line">                <span class="string">"\n"</span> +</span><br><span class="line">                <span class="string">"\n"</span> +</span><br><span class="line">                <span class="string">"FROM\n"</span> +</span><br><span class="line">                <span class="string">"admin_consumables wupin\n"</span> +</span><br><span class="line">                <span class="string">"LEFT JOIN admin_workerman ren ON wupin.conPribcipal = ren.`code`\n"</span> +</span><br><span class="line">                <span class="string">"LEFT JOIN admin_workerman banzu ON ren.fatherId = banzu.id\n"</span> +</span><br><span class="line">                <span class="string">"LEFT JOIN admin_workerman chejian ON banzu.fatherId = chejian.id\n"</span> +</span><br><span class="line">                <span class="string">"LEFT JOIN admin_consumablestype pinming ON pinming.id = wupin.consumableName_id\n"</span> +</span><br><span class="line">                <span class="string">"WHERE wupin.id in( "</span>+</span><br><span class="line">                bs.substring(<span class="number">0</span>,bs.length()-<span class="number">1</span>)</span><br><span class="line">                + <span class="string">") and wupin.kjYear = :kjyear \n"</span> +</span><br><span class="line">                <span class="string">"GROUP BY chejian.id\n"</span> +</span><br><span class="line">                <span class="string">"ORDER BY chejian.id ASC"</span>;</span><br><span class="line"></span><br><span class="line">        params.put(<span class="string">"kjyear"</span>,Integer.valueOf(kjyear));</span><br><span class="line">        <span class="keyword">return</span> abandonedDao.find4SQL(sql, params);</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure>
+<p>这里sql语句没有看懂，以后再看。如果分页的话，可以用Hierbante封装的方法<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Dao层代码</span><br><span class="line"><span class="keyword">public</span> List&lt;Map&lt;String,Object&gt;&gt; find4SQL(<span class="keyword">final</span> String sql, <span class="keyword">final</span> Map&lt;String, Object&gt; params) &#123;</span><br><span class="line">        SQLQuery query = getSession().createSQLQuery(sql);</span><br><span class="line">        <span class="comment">// 转成Map</span></span><br><span class="line">        query.setResultTransformer(Transformers.ALIAS_TO_ENTITY_MAP);</span><br><span class="line"><span class="comment">//        query.setCacheable(true);</span></span><br><span class="line">        QUERY_INIT(query, params);</span><br><span class="line">        <span class="keyword">return</span> query.list();</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<p>查询出来是List&lt;Map&lt;String,Object&gt;&gt; 我用的是jsp页面 ，在jsp页面容易遍历。直接遍历list，然后直接点出来 查询时候的列名称 就可以取到值了。<br>如果是List<string> 在jsp页面中 直接  Object[index]就可以取出想要的值。<br>搬运来自： <a href="https://blog.csdn.net/hjiacheng/article/details/53717727" target="_blank" rel="noopener">https://blog.csdn.net/hjiacheng/article/details/53717727</a> Hibernate SQLQuery原生sql查询<br><a href="https://blog.csdn.net/woduoxiangfeiya/article/details/53536033" target="_blank" rel="noopener">https://blog.csdn.net/woduoxiangfeiya/article/details/53536033</a> 前端jsp页面获取List&lt;List<string>&gt;格式数据<br><a href="https://blog.csdn.net/leave417/article/details/78346088" target="_blank" rel="noopener">https://blog.csdn.net/leave417/article/details/78346088</a> jsp页面遍历List&lt;Map&lt;String,Object&gt;&gt;</string></string></p>
 
       
     </div>
@@ -440,7 +440,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/JS/" rel="tag"><i class="fa fa-tag"></i> JS</a>
+            <a href="/tags/Hibernate/" rel="tag"><i class="fa fa-tag"></i> Hibernate</a>
           
         </div>
       
@@ -453,8 +453,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/28/云MAS-发送短信/" rel="next" title="云MAS 发送短信">
-                <i class="fa fa-chevron-left"></i> 云MAS 发送短信
+              <a href="/2018/06/29/Hibernate用Sql查询in的用法/" rel="next" title="Hibernate用Sql查询in的用法">
+                <i class="fa fa-chevron-left"></i> Hibernate用Sql查询in的用法
               </a>
             
           </div>
@@ -462,10 +462,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/JS中return的用法/" rel="prev" title="JS中return的用法">
-                JS中return的用法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -615,7 +611,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#HTML页面"><span class="nav-number">1.</span> <span class="nav-text">HTML页面</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#JS代码"><span class="nav-number">2.</span> <span class="nav-text">JS代码</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Hibernate-查询方式"><span class="nav-number">1.</span> <span class="nav-text">Hibernate 查询方式</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#代码部分"><span class="nav-number">2.</span> <span class="nav-text">代码部分</span></a></li></ol></div>
             
 
           </div>
