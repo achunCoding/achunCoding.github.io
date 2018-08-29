@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="Java," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="codingAc's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="这里主要是参考一些网上大神的案例，不过也要记录一下。便于以后自己学习，也可以给其他人做参考。我做的不一定对。">
+<meta name="keywords" content="Java">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用freemarker导出Word 2018-08-29">
+<meta property="og:url" content="http://yoursite.com/2018/08/29/使用freemarker导出Word-2018-08-29/index.html">
+<meta property="og:site_name" content="codingAc&#39;s blog">
+<meta property="og:description" content="这里主要是参考一些网上大神的案例，不过也要记录一下。便于以后自己学习，也可以给其他人做参考。我做的不一定对。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/wordmuban.png">
+<meta property="og:image" content="http://yoursite.com/images/lingcunwei.png">
+<meta property="og:image" content="http://yoursite.com/images/ftlmuban.png">
+<meta property="og:image" content="http://yoursite.com/images/ftlxinxi.png">
+<meta property="og:image" content="http://yoursite.com/images/daochuhtml.png">
+<meta property="og:image" content="http://yoursite.com/images/worddaochu.png">
+<meta property="og:updated_time" content="2018-08-29T14:24:37.170Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用freemarker导出Word 2018-08-29">
+<meta name="twitter:description" content="这里主要是参考一些网上大神的案例，不过也要记录一下。便于以后自己学习，也可以给其他人做参考。我做的不一定对。">
+<meta name="twitter:image" content="http://yoursite.com/images/wordmuban.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/29/使用freemarker导出Word-2018-08-29/"/>
+
+
+
+
+
+  <title>使用freemarker导出Word 2018-08-29 | codingAc's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">codingAc's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">改变,永远不嫌晚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-something"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/29/使用freemarker导出Word-2018-08-29/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Achun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wycfight.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codingAc's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">使用freemarker导出Word 2018-08-29</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-29T15:54:58+08:00">
+                2018-08-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,686
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  13
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>这里主要是参考一些网上大神的案例，不过也要记录一下。便于以后自己学习，也可以给其他人做参考。我做的不一定对。<br><a id="more"></a></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>其实我也看过一些用POI或者其他工具进行导出Word，都感觉挺好的。这次记录一下自己使用freemarker进行Word导出。<br>首先电脑上要有Word，感觉这一点不是很好。但总体上来说，就是使用Word制作一个模板，用一些占位符在Word中。<br>因为使用freemarker可以将占位符替换成自己想要的内容，这里我只做了一个表格模板。其他情况可以参考下方链接。</p>
+<h2 id="导入jar包"><a href="#导入jar包" class="headerlink" title="导入jar包"></a>导入jar包</h2><p>我这里使用的maven工程。所以只需要引入相应的坐标就可以将jar包引入。如果是普通web项目 可以自行去下jar包。<br>POM文件：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">  &lt;groupId&gt;org.freemarker&lt;/groupId&gt;</span><br><span class="line">  &lt;artifactId&gt;freemarker&lt;/artifactId&gt;</span><br><span class="line">  &lt;version&gt;2.3.28&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<p>Jar下载链接：<br><a href="https://freemarker.apache.org/freemarkerdownload.html" target="_blank" rel="noopener">https://freemarker.apache.org/freemarkerdownload.html</a></p>
+<h2 id="Word模板"><a href="#Word模板" class="headerlink" title="Word模板"></a>Word模板</h2><p>用Word制作好模板。调成自己想要的样式，我目前是调成这个样式，建议先调整好样式，不然保存成xml不好改样式。<br>这里首先使用占位符，前面也提到了。便于将自己的数据放到表格里面。这里如果有图片，先放上图片。因为这样可以<br>进行该一些模板里面的东西。保存成xml可以将图片里面的信息换成占位符，可以随时进行替换。<br><img src="/images/wordmuban.png" alt="word模板"><br>PS：这里我没有用WPS试过，如果都是保存成XML应该是可以的。这里我使用的word 2013版本。<br>编辑好之后需要将格式存成XML格式。如果存成别的，可能不能导出或者其他的一些问题。如下图所示：<br><img src="/images/lingcunwei.png" alt="word另存为"><br>这里需要提醒一下，数据很多 如果打开编辑的话，建议适应一些工具，我这里使用的是IDEA，可以使用notepad++，或者一些<br>便于XML文件编辑的工具。首先将xml后缀名改成ftl文件为后缀的，在IDEA可以使用里面的标签代码。</p>
+<h2 id="Ftl模板-文字处理"><a href="#Ftl模板-文字处理" class="headerlink" title="Ftl模板(文字处理)"></a>Ftl模板(文字处理)</h2><p><img src="/images/ftlmuban.png" alt="FtL模板"><br>这里模板的信息我不是很了解，这里我贴出一些我认为比较关键地方的东西。首先全局查找在模板中自己存的占位符，很有可能会<br>被打乱。但是存成Word XML 格式应该不会有错。这里w:t就是要存放的数据。这里只要占位符和后台传的数据一样就行。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">w:r</span> <span class="attr">wsp:rsidRPr</span>=<span class="string">"00182F67"</span>&gt;</span><span class="tag">&lt;<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:rFonts</span> <span class="attr">w:ascii</span>=<span class="string">"宋体"</span> <span class="attr">w:h-ansi</span>=<span class="string">"宋体"</span> <span class="attr">w:hint</span>=<span class="string">"fareast"</span>/&gt;</span><span class="tag">&lt;<span class="name">wx:font</span> <span class="attr">wx:val</span>=<span class="string">"宋体"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz-cs</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;/<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:t</span>&gt;</span>$&#123;username&#125;<span class="tag">&lt;/<span class="name">w:t</span>&gt;</span><span class="tag">&lt;/<span class="name">w:r</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>如果是多条数据可以加上freemarker语法，遍历List，并放入指定的位置。具体语法如下 在需要遍历的tr前面加上&lt;#list 自己后台传的list as name<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"red"</span>&gt;</span><span class="tag">&lt;<span class="name">#list</span> <span class="attr">messageList</span> <span class="attr">as</span> <span class="attr">message</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span><span class="tag">&lt;<span class="name">w:tr</span> <span class="attr">wsp:rsidR</span>=<span class="string">"004255BB"</span> <span class="attr">wsp:rsidRPr</span>=<span class="string">"00182F67"</span> <span class="attr">wsp:rsidTr</span>=<span class="string">"00182F67"</span>&gt;</span></span><br><span class="line">我这里可以直接.出来想要的数据在规定的位置，也是使用占位符<span class="tag">&lt;<span class="name">font</span> <span class="attr">color</span>=<span class="string">"red"</span>&gt;</span><span class="tag">&lt;<span class="name">w:t</span>&gt;</span>$&#123;message.name&#125;<span class="tag">&lt;/<span class="name">w:t</span>&gt;</span><span class="tag">&lt;/<span class="name">font</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">w:tr</span>&gt;</span><span class="tag">&lt;/<span class="name">#list</span>&gt;</span> 注意这里有结束的标签。不然会报错。</span><br></pre></td></tr></table></figure></p>
+<h2 id="Ftl模板-图片处理"><a href="#Ftl模板-图片处理" class="headerlink" title="Ftl模板(图片处理)"></a>Ftl模板(图片处理)</h2><p>上面只是处理了一些文字，这里处理一些图片的处理，因为之前在模板中我们已经放了图片，所以在ftl模板中直接将图片的base64码改成占位符<br>首先找到binData，将底下的Base64码改成占位符<br><img src="/images/ftlxinxi.png" alt="FtL信息"><br>改成如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">w:binData</span> <span class="attr">w:name</span>=<span class="string">"wordml://02000001.jpg"</span> <span class="attr">xml:space</span>=<span class="string">"preserve"</span>&gt;</span>$&#123;自己取的占位符&#125;<span class="tag">&lt;/<span class="name">w:binData</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>上面主要是展示一张图片，如果有多张，可以用上面的方式，将图片变成List遍历取出图片即可。<br>这里需要注意的是多张图片只显示一张的原因。w:name和src下的图片名称不能一样，所以src=”${“wordml://0300000”+img_index + 1 + “.png”}”<br>这种方式来解决，一开始我这里判断是否为空，如果为空就不显示，不判断的话，如果没有图片，导出的word中会有空白图片的存在。<br>&lt;#list imgList as img&gt;&lt;#if img.jiejueUrl != “”&gt;&lt;#else &gt;&lt;w:p&gt;&lt;/w:p&gt;&lt;/#if&gt;&lt;/#list&gt;具体可以参考下<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">w:tr</span> <span class="attr">wsp:rsidR</span>=<span class="string">"001B01DD"</span> <span class="attr">wsp:rsidRPr</span>=<span class="string">"00182F67"</span> <span class="attr">wsp:rsidTr</span>=<span class="string">"00182F67"</span>&gt;</span><span class="tag">&lt;<span class="name">w:tc</span>&gt;</span><span class="tag">&lt;<span class="name">w:tcPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:tcW</span> <span class="attr">w:w</span>=<span class="string">"4148"</span> <span class="attr">w:type</span>=<span class="string">"dxa"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:shd</span> <span class="attr">w:val</span>=<span class="string">"clear"</span> <span class="attr">w:color</span>=<span class="string">"auto"</span> <span class="attr">w:fill</span>=<span class="string">"auto"</span>/&gt;</span><span class="tag">&lt;/<span class="name">w:tcPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:p</span> <span class="attr">wsp:rsidR</span>=<span class="string">"001B01DD"</span> <span class="attr">wsp:rsidRPr</span>=<span class="string">"00182F67"</span> <span class="attr">wsp:rsidRDefault</span>=<span class="string">"001B01DD"</span> <span class="attr">wsp:rsidP</span>=<span class="string">"00182F67"</span>&gt;</span><span class="tag">&lt;<span class="name">w:pPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:jc</span> <span class="attr">w:val</span>=<span class="string">"left"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:sz</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz-cs</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;/<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;/<span class="name">w:pPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:r</span> <span class="attr">wsp:rsidRPr</span>=<span class="string">"00182F67"</span>&gt;</span><span class="tag">&lt;<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:sz</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz-cs</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;/<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:t</span>&gt;</span>$&#123;content&#125;<span class="tag">&lt;/<span class="name">w:t</span>&gt;</span><span class="tag">&lt;/<span class="name">w:r</span>&gt;</span><span class="tag">&lt;/<span class="name">w:p</span>&gt;</span><span class="tag">&lt;/<span class="name">w:tc</span>&gt;</span><span class="tag">&lt;<span class="name">w:tc</span>&gt;</span><span class="tag">&lt;<span class="name">w:tcPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:tcW</span> <span class="attr">w:w</span>=<span class="string">"4148"</span> <span class="attr">w:type</span>=<span class="string">"dxa"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:shd</span> <span class="attr">w:val</span>=<span class="string">"clear"</span> <span class="attr">w:color</span>=<span class="string">"auto"</span> <span class="attr">w:fill</span>=<span class="string">"auto"</span>/&gt;</span><span class="tag">&lt;/<span class="name">w:tcPr</span>&gt;</span><span class="tag">&lt;<span class="name">#list</span> <span class="attr">imgList</span> <span class="attr">as</span> <span class="attr">img</span>&gt;</span><span class="tag">&lt;<span class="name">#if</span> <span class="attr">img.jiejueUrl</span> != <span class="string">""</span>&gt;</span><span class="tag">&lt;<span class="name">w:p</span> <span class="attr">wsp:rsidR</span>=<span class="string">"001B01DD"</span> <span class="attr">wsp:rsidRPr</span>=<span class="string">"00182F67"</span> <span class="attr">wsp:rsidRDefault</span>=<span class="string">"003A4BDD"</span> <span class="attr">wsp:rsidP</span>=<span class="string">"00182F67"</span>&gt;</span><span class="tag">&lt;<span class="name">w:pPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:jc</span> <span class="attr">w:val</span>=<span class="string">"center"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:b</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz-cs</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;/<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;/<span class="name">w:pPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:r</span> <span class="attr">wsp:rsidRPr</span>=<span class="string">"003A4BDD"</span>&gt;</span><span class="tag">&lt;<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:b</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;<span class="name">w:sz-cs</span> <span class="attr">w:val</span>=<span class="string">"28"</span>/&gt;</span><span class="tag">&lt;/<span class="name">w:rPr</span>&gt;</span><span class="tag">&lt;<span class="name">w:pict</span>&gt;</span><span class="tag">&lt;<span class="name">w:binData</span> <span class="attr">w:name</span>=<span class="string">"$&#123;"</span><span class="attr">wordml:</span>//<span class="attr">0300000</span>"+<span class="attr">img_index</span> + <span class="attr">1</span> + "<span class="attr">.png</span>"&#125;" <span class="attr">xml:space</span>=<span class="string">"preserve"</span>&gt;</span>$&#123;img.jiejueUrl&#125;</span><br><span class="line"><span class="tag">&lt;/<span class="name">w:binData</span>&gt;</span><span class="tag">&lt;<span class="name">v:shape</span> <span class="attr">id</span>=<span class="string">"_x0000_i1026"</span> <span class="attr">type</span>=<span class="string">"#_x0000_t75"</span> <span class="attr">style</span>=<span class="string">"width:180pt;height:180pt"</span>&gt;</span><span class="tag">&lt;<span class="name">v:imagedata</span> <span class="attr">src</span>=<span class="string">"$&#123;"</span><span class="attr">wordml:</span>//<span class="attr">0300000</span>"+<span class="attr">img_index</span> + <span class="attr">1</span> + "<span class="attr">.png</span>"&#125;" <span class="attr">o:title</span>=<span class="string">"L4GSV(&#125;~LA[A2LH3CLZWXUL"</span>/&gt;</span><span class="tag">&lt;/<span class="name">v:shape</span>&gt;</span><span class="tag">&lt;/<span class="name">w:pict</span>&gt;</span><span class="tag">&lt;/<span class="name">w:r</span>&gt;</span><span class="tag">&lt;/<span class="name">w:p</span>&gt;</span><span class="tag">&lt;<span class="name">#else</span> &gt;</span><span class="tag">&lt;<span class="name">w:p</span>&gt;</span><span class="tag">&lt;/<span class="name">w:p</span>&gt;</span><span class="tag">&lt;/<span class="name">#if</span>&gt;</span><span class="tag">&lt;/<span class="name">#list</span>&gt;</span><span class="tag">&lt;/<span class="name">w:tc</span>&gt;</span><span class="tag">&lt;/<span class="name">w:tr</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>PS：freemarker需要注意的就是null值的判断，这块很不友好。</p>
+<h1 id="后台代码"><a href="#后台代码" class="headerlink" title="后台代码"></a>后台代码</h1><p>这里直接使用人家的代码，都贴出来。只需要自己在Controller做处理就行。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: wycfight@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>:</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2018-08-22 11:21</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@modified</span> By:</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.FileInputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.FileOutputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.io.OutputStreamWriter;</span><br><span class="line"><span class="keyword">import</span> java.io.Writer;</span><br><span class="line"><span class="keyword">import</span> java.net.URLEncoder;</span><br><span class="line"><span class="keyword">import</span> java.text.SimpleDateFormat;</span><br><span class="line"><span class="keyword">import</span> java.util.Date;</span><br><span class="line"><span class="keyword">import</span> java.util.Map;</span><br><span class="line"><span class="keyword">import</span> java.util.Random;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> javax.servlet.ServletOutputStream;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletRequest;</span><br><span class="line"><span class="keyword">import</span> javax.servlet.http.HttpServletResponse;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> freemarker.template.Configuration;</span><br><span class="line"><span class="keyword">import</span> freemarker.template.Template;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WordUtil</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//配置信息,代码本身写的还是很可读的,就不过多注解了</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> Configuration configuration = <span class="keyword">null</span>;</span><br><span class="line">    <span class="comment">//这里注意的是利用WordUtils的类加载器动态获得模板文件的位置</span></span><br><span class="line">    <span class="comment">// private static final String templateFolder = WordUtils.class.getClassLoader().getResource("../../").getPath() + "WEB-INF/templetes/";</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String templateFolder = <span class="string">"/"</span>;</span><br><span class="line">    <span class="keyword">static</span> &#123;</span><br><span class="line">        configuration = <span class="keyword">new</span> Configuration(Configuration.VERSION_2_3_0);</span><br><span class="line">        configuration.setDefaultEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            configuration.setClassForTemplateLoading(WordUtil.class,templateFolder);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="title">WordUtil</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">throw</span> <span class="keyword">new</span> AssertionError();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">exportMillCertificateWord</span><span class="params">(HttpServletRequest request, HttpServletResponse response, Map map, String title, String ftlFile)</span> <span class="keyword">throws</span> IOException </span>&#123;</span><br><span class="line">        Template freemarkerTemplate = configuration.getTemplate(ftlFile);</span><br><span class="line">        File file = <span class="keyword">null</span>;</span><br><span class="line">        InputStream fin = <span class="keyword">null</span>;</span><br><span class="line">        ServletOutputStream out = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 调用工具类的createDoc方法生成Word文档</span></span><br><span class="line">            file = createDoc(map,freemarkerTemplate);</span><br><span class="line">            fin = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line"></span><br><span class="line">            response.setCharacterEncoding(<span class="string">"utf-8"</span>);</span><br><span class="line">            response.setContentType(<span class="string">"application/msword"</span>);</span><br><span class="line">            Random r = <span class="keyword">new</span> Random();</span><br><span class="line">            SimpleDateFormat sdf1 = <span class="keyword">new</span> SimpleDateFormat(<span class="string">"yyyyMMdd"</span>);</span><br><span class="line">            StringBuffer sb = <span class="keyword">new</span> StringBuffer();</span><br><span class="line">            sb.append(sdf1.format(<span class="keyword">new</span> Date()));</span><br><span class="line">            sb.append(<span class="string">"_"</span>);</span><br><span class="line">            sb.append(r.nextInt(<span class="number">100</span>));</span><br><span class="line">            <span class="comment">// 设置浏览器以下载的方式处理该文件名</span></span><br><span class="line">            String fileName = title+sb + <span class="string">".doc"</span>;</span><br><span class="line">            response.setHeader(<span class="string">"Content-Disposition"</span>, <span class="string">"attachment;filename="</span></span><br><span class="line">                    .concat(String.valueOf(URLEncoder.encode(fileName, <span class="string">"UTF-8"</span>))));</span><br><span class="line"></span><br><span class="line">            out = response.getOutputStream();</span><br><span class="line">            <span class="keyword">byte</span>[] buffer = <span class="keyword">new</span> <span class="keyword">byte</span>[<span class="number">512</span>];  <span class="comment">// 缓冲区</span></span><br><span class="line">            <span class="keyword">int</span> bytesToRead = -<span class="number">1</span>;</span><br><span class="line">            <span class="comment">// 通过循环将读入的Word文件的内容输出到浏览器中</span></span><br><span class="line">            <span class="keyword">while</span>((bytesToRead = fin.read(buffer)) != -<span class="number">1</span>) &#123;</span><br><span class="line">                out.write(buffer, <span class="number">0</span>, bytesToRead);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">if</span>(fin != <span class="keyword">null</span>)</span><br><span class="line">            &#123;</span><br><span class="line">                fin.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span>(out != <span class="keyword">null</span>)&#123;</span><br><span class="line">                out.close();</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="comment">// 删除临时文件</span></span><br><span class="line">            <span class="keyword">if</span>(file != <span class="keyword">null</span>) &#123;</span><br><span class="line">                file.delete();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">static</span> File <span class="title">createDoc</span><span class="params">(Map&lt;?, ?&gt; dataMap, Template template)</span> </span>&#123;</span><br><span class="line">        String name =  <span class="string">"sellPlan.doc"</span>;</span><br><span class="line">        File f = <span class="keyword">new</span> File(name);</span><br><span class="line">        Template t = template;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            <span class="comment">// 这个地方不能使用FileWriter因为需要指定编码类型否则生成的Word文档会因为有无法识别的编码而无法打开</span></span><br><span class="line">            Writer w = <span class="keyword">new</span> OutputStreamWriter(<span class="keyword">new</span> FileOutputStream(f), <span class="string">"utf-8"</span>);</span><br><span class="line">            t.process(dataMap, w);</span><br><span class="line">            w.close();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (Exception ex) &#123;</span><br><span class="line">            ex.printStackTrace();</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> RuntimeException(ex);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> f;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p>具体的Controller代码如下：<br>处理图片的代码，将图片转成Base64并返回。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">    * 获取图片的base64码</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@param</span> src</span></span><br><span class="line"><span class="comment">    * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">    */</span></span><br><span class="line">   <span class="meta">@SuppressWarnings</span>(<span class="string">"deprecation"</span>)</span><br><span class="line">   <span class="function"><span class="keyword">public</span> String <span class="title">getImageBase</span><span class="params">(String src, HttpServletRequest request)</span> </span>&#123;</span><br><span class="line">       <span class="keyword">if</span>(src==<span class="keyword">null</span>||src==<span class="string">""</span>)&#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       File file = <span class="keyword">new</span> File(request.getRealPath(<span class="string">"/"</span>)+src.replace(request.getContextPath(), <span class="string">""</span>));</span><br><span class="line">       <span class="keyword">if</span>(!file.exists()) &#123;</span><br><span class="line">           <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">       &#125;</span><br><span class="line">       InputStream in = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">byte</span>[] data = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           in = <span class="keyword">new</span> FileInputStream(file);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (FileNotFoundException e1) &#123;</span><br><span class="line">           e1.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           data = <span class="keyword">new</span> <span class="keyword">byte</span>[in.available()];</span><br><span class="line">           in.read(data);</span><br><span class="line">           in.close();</span><br><span class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       BASE64Encoder encoder = <span class="keyword">new</span> BASE64Encoder();</span><br><span class="line">       <span class="keyword">return</span> encoder.encode(data);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure></p>
+<p>后台代码实现，将查询出来的数据存放到map中，只需要保证名字和占位符的一样就可以。我在这里就进行了判null处理 ，用List<map>存放图片信息，这块还可以完善<br>，目前我技术有限，可能写的比较垃圾。但是如果能给你带来一些帮助。那真实太好了。<br>上面定义的url：</map></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 导出Word</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">final</span> String EXPORT_WORD_URL = PERMISSION_URL_PREFIX + <span class="string">"/exportWord"</span>;</span><br></pre></td></tr></table></figure>
+<p>具体代码：<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br></pre></td><td class="code"><pre><span class="line"> <span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 导出Word</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@RequiresPermissions</span>(EXPORT_WORD_URL)</span><br><span class="line">    <span class="meta">@RequestMapping</span>(EXPORT_WORD_URL)</span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">exportWord</span><span class="params">(HttpServletRequest request, HttpServletResponse response, String messageId)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; dataMap = <span class="keyword">new</span> HashMap&lt;String, Object&gt;();</span><br><span class="line">        AdminWarning adminWarning = warningRepository.getOne(ToolStr.sToL(messageId,<span class="number">0</span>));</span><br><span class="line">        <span class="comment">// 存放人员名称</span></span><br><span class="line">        List&lt;String&gt; username = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        List&lt;PeopleLineTower&gt; people=peopleLineTowerRepository.findAllByAdminLineIdOrAdminTowerId(adminWarning.getTower().getLine().getId(),adminWarning.getTower().getId());</span><br><span class="line">        <span class="keyword">for</span> (PeopleLineTower peopleLineTower:people) &#123;</span><br><span class="line">            username.add(peopleLineTower.getPeople().getSysUser().getName());</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 首先查询出来所有的预警解决图片</span></span><br><span class="line">        <span class="comment">// 存放预警图片的</span></span><br><span class="line">        List&lt;Map&lt;String,Object&gt;&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">        String uuidName = adminWarning.getUuidName();</span><br><span class="line">        String[] split = uuidName.split(<span class="string">","</span>);</span><br><span class="line">        <span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; split.length; i++) &#123;</span><br><span class="line">            Map&lt;String, Object&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</span><br><span class="line">            map.put(<span class="string">"jiejueUrl"</span>,getImageBase(<span class="string">"/"</span> + adminWarning.getPicture() + <span class="string">"/"</span> +split[i],request));</span><br><span class="line">            list.add(map);</span><br><span class="line">        &#125;</span><br><span class="line">        dataMap.put(<span class="string">"username"</span>,String.join(<span class="string">","</span>,username));</span><br><span class="line">        dataMap.put(<span class="string">"createdTime"</span>, adminWarning.getCreatedTime());</span><br><span class="line">        dataMap.put(<span class="string">"updataTime"</span>, adminWarning.getUpdataTime().getTime() &lt;= adminWarning.getCreatedTime().getTime() ? <span class="string">"尚未解决"</span> : adminWarning.getUpdataTime());</span><br><span class="line">        dataMap.put(<span class="string">"lineName"</span>, ToolStr.isEmpty(adminWarning.getTower().getLine().getName()) ? <span class="string">""</span> : adminWarning.getTower().getLine().getName());</span><br><span class="line">        dataMap.put(<span class="string">"towerName"</span>, ToolStr.isEmpty(adminWarning.getTower().getName()) ? <span class="string">""</span> : adminWarning.getTower().getName());</span><br><span class="line">        dataMap.put(<span class="string">"cameraName"</span>,ToolStr.isEmpty(adminWarning.getCamera().getName())?<span class="string">""</span> : adminWarning.getCamera().getName() );</span><br><span class="line">        dataMap.put(<span class="string">"info"</span>, ToolStr.isEmpty(adminWarning.getInfo()) ? <span class="string">""</span> : adminWarning.getInfo());</span><br><span class="line">        dataMap.put(<span class="string">"yujingUrl"</span>, getImageBase(<span class="string">"/"</span>+CameraController.FILE_URL + adminWarning.getImge().getCameraName() + <span class="string">"/"</span> + adminWarning.getImge().getUuidName(),request));</span><br><span class="line">        dataMap.put(<span class="string">"content"</span>, ToolStr.isEmpty(adminWarning.getFont())?<span class="string">""</span>:adminWarning.getFont());</span><br><span class="line">        dataMap.put(<span class="string">"imgList"</span>,list);</span><br><span class="line">        <span class="comment">/** 生成word */</span></span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            WordUtil.exportMillCertificateWord(request,response,dataMap,<span class="string">"消息处理列表"</span>, <span class="string">"预警明细.ftl"</span>);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">```  </span><br><span class="line"></span><br><span class="line">## 前台Html页面</span><br><span class="line"></span><br><span class="line">前台导出word实现：</span><br><span class="line">```html</span><br><span class="line"> &lt;span <span class="class"><span class="keyword">class</span></span>=<span class="string">"r"</span>&gt;</span><br><span class="line">                &lt;a shiro:hasPermission=<span class="string">"$&#123;EXPORT_WORD_URL&#125;"</span> href=<span class="string">"javascript:;"</span> <span class="class"><span class="keyword">class</span></span>=<span class="string">"btn btn-secondary radius"</span></span><br><span class="line">                   th:href=<span class="string">"@&#123;$&#123;EXPORT_WORD_URL+'?messageId='+id&#125;&#125;"</span>&gt;</span><br><span class="line">                    &lt;i class="Hui-iconfont"&gt;&amp;#xe644;&lt;/i&gt;导出Word</span><br><span class="line">                &lt;/a&gt;</span><br><span class="line">            &lt;/span&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="实现效果"><a href="#实现效果" class="headerlink" title="实现效果"></a>实现效果</h1><p>具体效果如下：<br>导出页面，这块还没有完善。<br><img src="/images/daochuhtml.png" alt="FtL信息"><br>具体导出的模板信息如下：这块图片和文字还不知道怎么处理，但可以实现简单的导文字和图片了。<br><img src="/images/worddaochu.png" alt="FtL信息"></p>
+<p>搬运来自：<a href="https://www.cnblogs.com/zwqh/p/7182953.html" target="_blank" rel="noopener">https://www.cnblogs.com/zwqh/p/7182953.html</a> Java  用Freemarker完美导出word文档（带图片）<br><a href="https://blog.csdn.net/huangwenyi1010/article/details/51771551" target="_blank" rel="noopener">https://blog.csdn.net/huangwenyi1010/article/details/51771551</a>   Java之利用FreeMarker导出Word实例</p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>辣条君~~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Achun 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Achun 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Java/" rel="tag"><i class="fa fa-tag"></i> Java</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/09/批量导出Excel—2018-08-09/" rel="next" title="批量导出Excel—2018-08-09">
+                <i class="fa fa-chevron-left"></i> 批量导出Excel—2018-08-09
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wycfight.jpg"
+                alt="Achun" />
+            
+              <p class="site-author-name" itemprop="name">Achun</p>
+              <p class="site-description motion-element" itemprop="description">越努力，越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/achuncoding" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/5778648089/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#导入jar包"><span class="nav-number">1.1.</span> <span class="nav-text">导入jar包</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Word模板"><span class="nav-number">1.2.</span> <span class="nav-text">Word模板</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ftl模板-文字处理"><span class="nav-number">1.3.</span> <span class="nav-text">Ftl模板(文字处理)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Ftl模板-图片处理"><span class="nav-number">1.4.</span> <span class="nav-text">Ftl模板(图片处理)</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后台代码"><span class="nav-number">2.</span> <span class="nav-text">后台代码</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实现效果"><span class="nav-number">3.</span> <span class="nav-text">实现效果</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Achun</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">22.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.7k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript"
+color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+

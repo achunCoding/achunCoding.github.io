@@ -1,0 +1,856 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+  
+  
+    
+    
+  <script src="/lib/pace/pace.min.js?v=1.0.2"></script>
+  <link href="/lib/pace/pace-theme-minimal.min.css?v=1.0.2" rel="stylesheet">
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="日常总结," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="codingAc's blog" type="application/atom+xml" />
+
+
+
+
+
+
+<meta name="description" content="实现导出Excel可以进行选择具体某几列进行导出，这里是用别人的代码，觉得比较高端，所以记录一下，以便自己学习。">
+<meta name="keywords" content="日常总结">
+<meta property="og:type" content="article">
+<meta property="og:title" content="导出Excel(可选择)—2018-08-09">
+<meta property="og:url" content="http://yoursite.com/2018/08/09/导出Excel-可选择-—2018-08-09/index.html">
+<meta property="og:site_name" content="codingAc&#39;s blog">
+<meta property="og:description" content="实现导出Excel可以进行选择具体某几列进行导出，这里是用别人的代码，觉得比较高端，所以记录一下，以便自己学习。">
+<meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/images/daochuExcel.png">
+<meta property="og:image" content="http://yoursite.com/images/daochu.png">
+<meta property="og:updated_time" content="2018-08-29T14:24:33.201Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="导出Excel(可选择)—2018-08-09">
+<meta name="twitter:description" content="实现导出Excel可以进行选择具体某几列进行导出，这里是用别人的代码，觉得比较高端，所以记录一下，以便自己学习。">
+<meta name="twitter:image" content="http://yoursite.com/images/daochuExcel.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"post","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/08/09/导出Excel-可选择-—2018-08-09/"/>
+
+
+
+
+
+  <title>导出Excel(可选择)—2018-08-09 | codingAc's blog</title>
+  
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">codingAc's blog</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">改变,永远不嫌晚</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-something">
+          <a href="/something" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-something"></i> <br />
+            
+            有料
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/09/导出Excel-可选择-—2018-08-09/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Achun">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/wycfight.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="codingAc's blog">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">导出Excel(可选择)—2018-08-09</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-09T09:53:06+08:00">
+                2018-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+            <div class="post-wordcount">
+              
+                
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-file-word-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">字数统计&#58;</span>
+                
+                <span title="字数统计">
+                  2,017
+                </span>
+              
+
+              
+                <span class="post-meta-divider">|</span>
+              
+
+              
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-clock-o"></i>
+                </span>
+                
+                  <span class="post-meta-item-text">阅读时长 &asymp;</span>
+                
+                <span title="阅读时长">
+                  11
+                </span>
+              
+            </div>
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>实现导出Excel可以进行选择具体某几列进行导出，这里是用别人的代码，觉得比较高端，所以记录一下，以便自己学习。<br><a id="more"></a></p>
+<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>导入导出Excel需要的jar包，这里用的是Maven工程，只需要引入相应的坐标即可。<br>POM文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">&lt;dependency&gt;</span><br><span class="line">   &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">   &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;</span><br><span class="line">   &lt;version&gt;3.15&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;poi-ooxml&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.9&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.apache.poi&lt;/groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;poi-scratchpad&lt;/artifactId&gt;</span><br><span class="line">    &lt;version&gt;3.17&lt;/version&gt;</span><br><span class="line">&lt;/dependency&gt;</span><br></pre></td></tr></table></figure></p>
+<h1 id="前台实现"><a href="#前台实现" class="headerlink" title="前台实现"></a>前台实现</h1><p>用的是jsp，前台框架用的H-UI,一开始需要将显示弹框的内容进行隐藏，用layer.open就可以实现弹框。<br>效果如下，没有美化：</p>
+<p><img src="/images/daochuExcel.png" alt="导出Excel弹窗"><br>具体实现代码:这里是导出的按钮<br><img src="/images/daochu.png" alt="导出按钮"><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;/<span class="name">a</span>&gt;</span>&amp;nbsp;&amp;nbsp;&amp;nbsp;&amp;nbsp;<span class="tag">&lt;<span class="name">a</span> <span class="attr">style</span>=<span class="string">"float:right"</span> <span class="attr">class</span>=<span class="string">"btn btn-secondary radius"</span> </span></span><br><span class="line"><span class="tag"><span class="attr">href</span>=<span class="string">"javascript:;"</span> <span class="attr">onclick</span>=<span class="string">"daochuexcel4ledgerid()"</span>&gt;</span>导出<span class="tag">&lt;/<span class="name">a</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>隐藏的弹出框的内容<br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">div</span>  <span class="attr">id</span>=<span class="string">"exportexceldiv"</span> <span class="attr">hidden</span>=<span class="string">"true"</span> <span class="attr">style</span>=<span class="string">"width: 95%;"</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;<span class="name">form</span> <span class="attr">action</span>=<span class="string">"$&#123;ctx &#125;$&#123;exportexcel&#125;"</span> <span class="attr">id</span>=<span class="string">"exportexcelform"</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"reportTime"</span> <span class="attr">value</span>=<span class="string">"$&#123;reportTime &#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"deadTime"</span> <span class="attr">value</span>=<span class="string">"$&#123;deadTime &#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"state"</span> <span class="attr">value</span>=<span class="string">"$&#123;param.state &#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"additionFirstId"</span> <span class="attr">value</span>=<span class="string">"$&#123;additionFirstId &#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"pagerowTotal"</span> <span class="attr">value</span>=<span class="string">"$&#123;page.rowTotal &#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"hidden"</span> <span class="attr">name</span>=<span class="string">"departmentId"</span> <span class="attr">value</span>=<span class="string">"$&#123;departmentId &#125;"</span> &gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row cl"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">label</span> <span class="attr">class</span>=<span class="string">"form-label col-xs-4 col-sm-3"</span>&gt;</span><span class="tag">&lt;<span class="name">span</span></span></span><br><span class="line"><span class="tag">                    <span class="attr">class</span>=<span class="string">"c-red"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span>请选择导出列：<span class="tag">&lt;/<span class="name">label</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"formControls col-xs-8 col-sm-9"</span> <span class="attr">id</span>=<span class="string">""</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"xuhao"</span> <span class="attr">name</span>=<span class="string">"col"</span> <span class="attr">id</span>=<span class="string">"colxuhao"</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"colxuhao"</span>&gt;</span>序号<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"mingcheng"</span> <span class="attr">name</span>=<span class="string">"col"</span> <span class="attr">id</span>=<span class="string">"collmingcheng"</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"collmingcheng"</span>&gt;</span>部门名称<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                <span class="comment">&lt;!-- 这里写上用户自定义的哪一些 --&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">span</span> <span class="attr">id</span>=<span class="string">"ledgerinfocheckbox"</span>&gt;</span></span><br><span class="line"></span><br><span class="line">                    <span class="tag">&lt;/<span class="name">span</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"shijian"</span> <span class="attr">name</span>=<span class="string">"col"</span> <span class="attr">id</span>=<span class="string">"colshijian"</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"colshijian"</span>&gt;</span>上报时间<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"checkbox"</span> <span class="attr">value</span>=<span class="string">"zhuangtai"</span> <span class="attr">name</span>=<span class="string">"col"</span> <span class="attr">id</span>=<span class="string">"colzhuangtai"</span>&gt;</span><span class="tag">&lt;<span class="name">label</span> <span class="attr">for</span>=<span class="string">"colzhuangtai"</span>&gt;</span>状态<span class="tag">&lt;/<span class="name">label</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"row cl"</span> <span class="attr">style</span>=<span class="string">"padding-top: 15px;"</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"col-sm-4 col-sm-offset-5"</span>&gt;</span></span><br><span class="line">                <span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"submit"</span> <span class="attr">class</span>=<span class="string">"btn btn-primary radius"</span> <span class="attr">value</span>=<span class="string">"导出"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></span><br><span class="line">            <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br><span class="line">    <span class="tag">&lt;/<span class="name">form</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span><br></pre></td></tr></table></figure></p>
+<p>daochuexcel4ledgerid实现方法<br><figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br></pre></td><td class="code"><pre><span class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</span><br><span class="line">    <span class="comment">//这是导出某一台账的方法</span></span><br><span class="line">    <span class="function"><span class="keyword">function</span> <span class="title">daochuexcel4ledgerid</span>(<span class="params"></span>)</span>&#123;</span><br><span class="line">        <span class="comment">//先清空多选框</span></span><br><span class="line">        $(<span class="string">"#ledgerinfocheckbox"</span>).html(<span class="string">""</span>);</span><br><span class="line">        <span class="comment">//获得到当前台账的id和搜索条件</span></span><br><span class="line">        <span class="comment">//展示loading框</span></span><br><span class="line">        <span class="keyword">var</span> layermsgindex = layer.msg(<span class="string">'加载中'</span>, &#123;</span><br><span class="line">            icon: <span class="number">16</span>,</span><br><span class="line">            shade: <span class="number">0.01</span>,</span><br><span class="line">            time:<span class="number">0</span></span><br><span class="line">        &#125;);</span><br><span class="line">        $.ajax(&#123;</span><br><span class="line">            url : <span class="string">"$&#123;ctx &#125;$&#123;beforeexportexcel&#125;"</span>,</span><br><span class="line">            data : &#123;</span><br><span class="line">                <span class="string">"additionFirstId"</span>:<span class="string">'$&#123;additionFirstId&#125;'</span></span><br><span class="line">            &#125;,</span><br><span class="line">            dataType : <span class="string">"json"</span>,</span><br><span class="line">            type: <span class="string">"post"</span>,</span><br><span class="line">            <span class="keyword">async</span>:<span class="literal">true</span>,</span><br><span class="line">            success: <span class="function"><span class="keyword">function</span> (<span class="params">result</span>) </span>&#123;</span><br><span class="line"></span><br><span class="line">                <span class="keyword">var</span> jsonobj = <span class="built_in">eval</span>(result);</span><br><span class="line">                <span class="keyword">var</span> htmlcont = <span class="string">""</span>;</span><br><span class="line">                <span class="keyword">if</span> (result.length != <span class="number">0</span> || result != <span class="literal">null</span> || result !=<span class="string">''</span>) &#123;</span><br><span class="line">                    <span class="keyword">for</span>(<span class="keyword">var</span> i <span class="keyword">in</span> jsonobj)&#123;</span><br><span class="line">                        <span class="comment">//追加多选框</span></span><br><span class="line">                        htmlcont += <span class="string">' &lt;input type="checkbox" value="'</span>+ jsonobj[i].id +<span class="string">'" name="col" id="col'</span>+ jsonobj[i].id +<span class="string">'"&gt;&lt;label for="col'</span>+ jsonobj[i].id +<span class="string">'"&gt;'</span>+ jsonobj[i].secondName +<span class="string">'&lt;/label&gt;&lt;br&gt; '</span>;</span><br><span class="line">                    &#125;</span><br><span class="line"></span><br><span class="line">                &#125;</span><br><span class="line"></span><br><span class="line">                $(<span class="string">"#ledgerinfocheckbox"</span>).html(htmlcont);</span><br><span class="line">            &#125;,</span><br><span class="line">            error: <span class="function"><span class="keyword">function</span> (<span class="params">xhr, status, error</span>) </span>&#123;</span><br><span class="line">                layer.closeAll();</span><br><span class="line">                layer.msg(<span class="string">'加载失败，请重试。'</span>, &#123;<span class="attr">icon</span>: <span class="number">5</span>&#125;);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br><span class="line">        layer.closeAll();</span><br><span class="line">        <span class="comment">//弹出提示框选择列数</span></span><br><span class="line">        layer.open(&#123;</span><br><span class="line">            type: <span class="number">1</span>,</span><br><span class="line">            title: <span class="string">"导出列表"</span>,</span><br><span class="line">            skin: <span class="string">'layui-layer-rim'</span>, <span class="comment">//加上边框</span></span><br><span class="line">            area: [<span class="string">'800px'</span>, <span class="string">'600px'</span>], <span class="comment">//宽高</span></span><br><span class="line">            content: $(<span class="string">"#exportexceldiv"</span>)</span><br><span class="line">        &#125;);</span><br><span class="line">    &#125;</span><br><span class="line">&lt;<span class="regexp">/script&gt;</span></span><br></pre></td></tr></table></figure></p>
+<h1 id="后台实现"><a href="#后台实现" class="headerlink" title="后台实现"></a>后台实现</h1><p>查询出来具体需要导出的Excel列表数据<br>这里用框架的方法，可以自己实现查询<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">     * 加分项导出Excel前查询上报项</span></span><br><span class="line"><span class="comment">     *</span></span><br><span class="line"><span class="comment">     * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">    <span class="meta">@ResponseBody</span></span><br><span class="line">    <span class="meta">@RequestMapping</span>(BEFORE_EXPORT_EXCEL_URL)</span><br><span class="line">    <span class="meta">@RequiresPermissions</span>(BEFORE_EXPORT_EXCEL_URL)</span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">beforeExportExcel</span><span class="params">(String additionFirstId)</span> </span>&#123;</span><br><span class="line">        Map&lt;String, Object&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br><span class="line">        params.put(<span class="string">" additionFirstConfig.id = "</span>, ToolStr.sToL(additionFirstId, <span class="number">0</span>));</span><br><span class="line">        params.put(<span class="string">" state = "</span>, <span class="number">1</span>);</span><br><span class="line">        params.put(<span class="string">" deleteState = "</span>, <span class="number">1</span>);</span><br><span class="line">        List&lt;AdditionSecondConfig&gt; additionSecondConfigList = additionSecondConfigService.find4Params(params, <span class="string">" order by sort,id asc"</span>);</span><br><span class="line">        String jsonString = JSONObject.toJSONString(additionSecondConfigList);</span><br><span class="line">        <span class="keyword">return</span> jsonString;</span><br><span class="line">    &#125;</span><br></pre></td></tr></table></figure></p>
+<h1 id="导出Excel"><a href="#导出Excel" class="headerlink" title="导出Excel"></a>导出Excel</h1><p>  点击弹出框中的导出可以进行导出，执行form表单中的方法，具体后台实现代码如下：<br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br><span class="line">80</span><br><span class="line">81</span><br><span class="line">82</span><br><span class="line">83</span><br><span class="line">84</span><br><span class="line">85</span><br><span class="line">86</span><br><span class="line">87</span><br><span class="line">88</span><br><span class="line">89</span><br><span class="line">90</span><br><span class="line">91</span><br><span class="line">92</span><br><span class="line">93</span><br><span class="line">94</span><br><span class="line">95</span><br><span class="line">96</span><br><span class="line">97</span><br><span class="line">98</span><br><span class="line">99</span><br><span class="line">100</span><br><span class="line">101</span><br><span class="line">102</span><br><span class="line">103</span><br><span class="line">104</span><br><span class="line">105</span><br><span class="line">106</span><br><span class="line">107</span><br><span class="line">108</span><br><span class="line">109</span><br><span class="line">110</span><br><span class="line">111</span><br><span class="line">112</span><br><span class="line">113</span><br><span class="line">114</span><br><span class="line">115</span><br><span class="line">116</span><br><span class="line">117</span><br><span class="line">118</span><br><span class="line">119</span><br><span class="line">120</span><br><span class="line">121</span><br><span class="line">122</span><br><span class="line">123</span><br><span class="line">124</span><br><span class="line">125</span><br><span class="line">126</span><br><span class="line">127</span><br><span class="line">128</span><br><span class="line">129</span><br><span class="line">130</span><br><span class="line">131</span><br><span class="line">132</span><br><span class="line">133</span><br><span class="line">134</span><br><span class="line">135</span><br><span class="line">136</span><br><span class="line">137</span><br><span class="line">138</span><br><span class="line">139</span><br><span class="line">140</span><br><span class="line">141</span><br><span class="line">142</span><br><span class="line">143</span><br><span class="line">144</span><br><span class="line">145</span><br><span class="line">146</span><br><span class="line">147</span><br><span class="line">148</span><br><span class="line">149</span><br><span class="line">150</span><br><span class="line">151</span><br><span class="line">152</span><br><span class="line">153</span><br><span class="line">154</span><br><span class="line">155</span><br><span class="line">156</span><br><span class="line">157</span><br><span class="line">158</span><br><span class="line">159</span><br><span class="line">160</span><br><span class="line">161</span><br><span class="line">162</span><br><span class="line">163</span><br><span class="line">164</span><br><span class="line">165</span><br><span class="line">166</span><br><span class="line">167</span><br><span class="line">168</span><br><span class="line">169</span><br><span class="line">170</span><br><span class="line">171</span><br><span class="line">172</span><br><span class="line">173</span><br><span class="line">174</span><br><span class="line">175</span><br><span class="line">176</span><br><span class="line">177</span><br><span class="line">178</span><br><span class="line">179</span><br><span class="line">180</span><br><span class="line">181</span><br><span class="line">182</span><br><span class="line">183</span><br><span class="line">184</span><br><span class="line">185</span><br><span class="line">186</span><br><span class="line">187</span><br><span class="line">188</span><br><span class="line">189</span><br><span class="line">190</span><br><span class="line">191</span><br><span class="line">192</span><br><span class="line">193</span><br><span class="line">194</span><br><span class="line">195</span><br><span class="line">196</span><br><span class="line">197</span><br><span class="line">198</span><br><span class="line">199</span><br><span class="line">200</span><br><span class="line">201</span><br><span class="line">202</span><br><span class="line">203</span><br><span class="line">204</span><br><span class="line">205</span><br><span class="line">206</span><br><span class="line">207</span><br><span class="line">208</span><br><span class="line">209</span><br><span class="line">210</span><br><span class="line">211</span><br><span class="line">212</span><br><span class="line">213</span><br><span class="line">214</span><br><span class="line">215</span><br><span class="line">216</span><br><span class="line">217</span><br><span class="line">218</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> response        响应</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> additionFirstId 一级菜单id</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> pagerowTotal    总记录数</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> col             列选择的每一列</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> type            类型</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> reportTime      上报时间 搜索条件</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> deadTime        结束时间 搜索条件</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> state           状态 搜索条件</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@param</span> departmentId    部门id</span></span><br><span class="line"><span class="comment">   * <span class="doctag">@return</span></span></span><br><span class="line"><span class="comment">   */</span></span><br><span class="line">  <span class="meta">@RequestMapping</span>(EXPORT_EXCEL_URL)</span><br><span class="line">  <span class="meta">@RequiresPermissions</span>(EXPORT_EXCEL_URL)</span><br><span class="line">  <span class="function"><span class="keyword">public</span> String <span class="title">exportExcel</span><span class="params">(HttpServletResponse response, String additionFirstId, String pagerowTotal,</span></span></span><br><span class="line"><span class="function"><span class="params">                            String col, String type, String reportTime, String deadTime, String state,</span></span></span><br><span class="line"><span class="function"><span class="params">                            String departmentId)</span> </span>&#123;</span><br><span class="line">      Page page = <span class="keyword">new</span> Page();</span><br><span class="line">      page.setCurentPage(<span class="number">1</span>);</span><br><span class="line">      <span class="comment">// 这个根据具体的数量再定</span></span><br><span class="line">      page.setPageSize(ToolStr.sToI(pagerowTotal, <span class="number">0</span>));</span><br><span class="line">      Map&lt;String, Object&gt; params = <span class="keyword">new</span> HashMap&lt;&gt;(<span class="number">16</span>);</span><br><span class="line">      <span class="comment">// 先查看导出哪一类台账</span></span><br><span class="line">      String additionTitle = <span class="string">"加分项列表"</span>;</span><br><span class="line">      <span class="comment">// 先查看有无ledgerId</span></span><br><span class="line">      List&lt;ReportAddition&gt; list = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">      <span class="comment">// 获取当前年月</span></span><br><span class="line">      Calendar cal = Calendar.getInstance();</span><br><span class="line">      <span class="keyword">int</span> year = cal.get(Calendar.YEAR);</span><br><span class="line">      <span class="keyword">int</span> month = cal.get(Calendar.MONTH) + <span class="number">1</span>;</span><br><span class="line">      <span class="keyword">if</span> (!ToolStr.isEmpty(additionFirstId)) &#123;</span><br><span class="line">          AdditionFirstConfig additionFirstConfig = additionFirstConfigService.get(ToolStr.sToL(additionFirstId, <span class="number">0</span>));</span><br><span class="line">          <span class="comment">// 获取一级菜单名称</span></span><br><span class="line">          params.clear();</span><br><span class="line">          additionTitle = additionFirstConfig.getFirstName();</span><br><span class="line">          <span class="comment">// 判断是否有部门id</span></span><br><span class="line">          <span class="keyword">if</span> (!ToolStr.isEmpty(departmentId)) &#123;</span><br><span class="line">              params.put(<span class="string">" department.id = "</span>, ToolStr.sToL(departmentId, <span class="number">0</span>));</span><br><span class="line">          &#125;</span><br><span class="line">          params.put(<span class="string">" additionFirstConfig.id = "</span>, ToolStr.sToL(additionFirstId, <span class="number">0</span>));</span><br><span class="line">          <span class="keyword">if</span> (!ToolStr.isEmpty(state)) &#123;</span><br><span class="line">              params.put(<span class="string">" state = "</span>, ToolStr.sToI(state));</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> (!ToolStr.isEmpty(reportTime)) &#123;</span><br><span class="line">              reportTime += <span class="string">"-01 00:00:00"</span>;</span><br><span class="line">              params.put(<span class="string">" reportTime &gt;= "</span>, ToolDate.parseTime(reportTime, <span class="keyword">null</span>));</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// 判断截止日期是否存在</span></span><br><span class="line">          <span class="keyword">if</span> (!ToolStr.isEmpty(deadTime)) &#123;</span><br><span class="line">              Date[] monthDate = ToolDate.monthDate(<span class="keyword">new</span> Date());</span><br><span class="line">              deadTime = deadTime + <span class="string">"-"</span> + (monthDate[<span class="number">1</span>].getDate()) + <span class="string">" 23:59:59"</span>;</span><br><span class="line">              params.put(<span class="string">" reportTime &lt;= "</span>, ToolDate.parseTime(deadTime, <span class="keyword">null</span>));</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="comment">// 查询上报列表</span></span><br><span class="line">          list = reportAdditionService.find4Page(<span class="keyword">null</span>, params, <span class="string">" order by reportTime desc"</span>);</span><br><span class="line"></span><br><span class="line">      &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">int</span> len = <span class="number">0</span>;</span><br><span class="line">      List&lt;String&gt; cols = <span class="keyword">new</span> ArrayList&lt;&gt;();</span><br><span class="line">      <span class="keyword">if</span> (!ToolStr.isEmpty(col)) &#123;</span><br><span class="line">          String[] colsplit = col.split(<span class="string">","</span>);</span><br><span class="line">          len += colsplit.length;</span><br><span class="line">          <span class="keyword">for</span> (String string : colsplit) &#123;</span><br><span class="line">              cols.add(string);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// if (!ToolStr.isEmpty(colids)) &#123;</span></span><br><span class="line">      <span class="comment">// String[] colidssplit = colids.split(",");</span></span><br><span class="line">      <span class="comment">// len += colidssplit.length;</span></span><br><span class="line">      <span class="comment">// for (String string : colidssplit) &#123;</span></span><br><span class="line">      <span class="comment">// cols.add(string);</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line">      <span class="comment">// &#125;</span></span><br><span class="line">      XSSFWorkbook excel = <span class="keyword">new</span> XSSFWorkbook();</span><br><span class="line">      XSSFSheet createSheet = excel.createSheet();</span><br><span class="line">      <span class="comment">// 根据col的长度设置列宽</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; cols.size(); i++) &#123;</span><br><span class="line">          <span class="keyword">if</span> ((<span class="string">"xuhao"</span>).equals(cols.get(i)) || (<span class="string">"zhuangtai"</span>).equals(cols.get(i))) &#123;</span><br><span class="line">              <span class="comment">// 宽度</span></span><br><span class="line">              createSheet.setColumnWidth(i, <span class="number">20</span> * <span class="number">100</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> <span class="keyword">if</span> ((<span class="string">"mingcheng"</span>).equals(cols.get(i)) || (<span class="string">"shijian"</span>).equals(cols.get(i))) &#123;</span><br><span class="line">              <span class="comment">// 宽度</span></span><br><span class="line">              createSheet.setColumnWidth(i, <span class="number">20</span> * <span class="number">200</span>);</span><br><span class="line">          &#125; <span class="keyword">else</span> &#123;</span><br><span class="line">              <span class="comment">// 宽度</span></span><br><span class="line">              createSheet.setColumnWidth(i, <span class="number">20</span> * <span class="number">400</span>);</span><br><span class="line">          &#125;</span><br><span class="line">      &#125;</span><br><span class="line">      XSSFCellStyle style1 = excel.createCellStyle();</span><br><span class="line">      style1.setWrapText(<span class="keyword">true</span>);</span><br><span class="line">      XSSFFont font = excel.createFont();</span><br><span class="line">      font.setFontName(<span class="string">"黑体"</span>);</span><br><span class="line">      <span class="comment">// 设置字体大小</span></span><br><span class="line">      font.setFontHeightInPoints(Short.parseShort(<span class="string">"16"</span>));</span><br><span class="line">      style1.setVerticalAlignment(XSSFCellStyle.VERTICAL_CENTER);</span><br><span class="line">      style1.setAlignment(XSSFCellStyle.ALIGN_CENTER);</span><br><span class="line">      style1.setFont(font);</span><br><span class="line">      <span class="comment">// 表头样式</span></span><br><span class="line">      CellStyle headerStyle = excel.createCellStyle();</span><br><span class="line">      headerStyle.setWrapText(<span class="keyword">true</span>);</span><br><span class="line">      headerStyle.setVerticalAlignment(XSSFCellStyle.VERTICAL_CENTER);</span><br><span class="line">      headerStyle.setAlignment(XSSFCellStyle.ALIGN_CENTER);</span><br><span class="line">      Font headerFont = excel.createFont();</span><br><span class="line">      headerFont.setFontHeightInPoints((<span class="keyword">short</span>) <span class="number">11</span>);</span><br><span class="line">      headerFont.setFontName(<span class="string">"宋体"</span>);</span><br><span class="line">      headerStyle.setFont(headerFont);</span><br><span class="line">      <span class="comment">// 普通单元格样式</span></span><br><span class="line">      CellStyle cellStyle = excel.createCellStyle();</span><br><span class="line">      cellStyle.setWrapText(<span class="keyword">true</span>);</span><br><span class="line">      cellStyle.setVerticalAlignment(XSSFCellStyle.VERTICAL_CENTER);</span><br><span class="line">      Font cellFont = excel.createFont();</span><br><span class="line">      cellFont.setFontName(<span class="string">"宋体"</span>);</span><br><span class="line">      cellStyle.setFont(cellFont);</span><br><span class="line">      <span class="comment">// 创建第一行</span></span><br><span class="line">      XSSFRow createRow3 = createSheet.createRow(<span class="number">0</span>);</span><br><span class="line">      createRow3.setHeight((<span class="keyword">short</span>) (<span class="number">25</span> * <span class="number">20</span>));</span><br><span class="line">      <span class="comment">// 根据cols.size()进行合并</span></span><br><span class="line">      CellRangeAddress cra = <span class="keyword">new</span> CellRangeAddress(<span class="number">0</span>, <span class="number">0</span>, <span class="number">0</span>, cols.size() - <span class="number">1</span>);<span class="comment">// 合并单元格</span></span><br><span class="line">      createSheet.addMergedRegion(cra);</span><br><span class="line">      XSSFCell titleCell = createRow3.createCell(<span class="number">0</span>);</span><br><span class="line">      <span class="comment">// 表的标题</span></span><br><span class="line">      titleCell.setCellValue(additionTitle);</span><br><span class="line">      titleCell.setCellStyle(style1);</span><br><span class="line"></span><br><span class="line">      <span class="comment">// 创建第二行</span></span><br><span class="line">      XSSFRow createRow2 = createSheet.createRow(<span class="number">1</span>);</span><br><span class="line">      createRow2.setHeight((<span class="keyword">short</span>) (<span class="number">15</span> * <span class="number">20</span>));</span><br><span class="line">      <span class="comment">// 创建表头</span></span><br><span class="line">      <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols.size(); j++) &#123;</span><br><span class="line">          XSSFCell createCell = createRow2.createCell(j);</span><br><span class="line">          <span class="keyword">if</span> ((<span class="string">"xuhao"</span>.equals(cols.get(j)))) &#123;</span><br><span class="line">              createCell.setCellValue(<span class="string">"序号"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> ((<span class="string">"mingcheng"</span>).equals(cols.get(j))) &#123;</span><br><span class="line">              createCell.setCellValue(<span class="string">"部门名称"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> (!(<span class="string">"zhuangtai"</span>).equals(cols.get(j)) &amp;&amp; !(<span class="string">"shijian"</span>).equals(cols.get(j))) &#123;</span><br><span class="line">              <span class="comment">// 拿着id去取</span></span><br><span class="line">              AdditionSecondConfig additionSecondConfig = additionSecondConfigService.get(ToolStr.sToL(cols.get(j), <span class="number">0</span>));</span><br><span class="line">              <span class="keyword">if</span> (additionSecondConfig != <span class="keyword">null</span>) &#123;</span><br><span class="line">                  createCell.setCellValue(additionSecondConfig.getSecondName());</span><br><span class="line">              &#125;</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> ((<span class="string">"shijian"</span>).equals(cols.get(j))) &#123;</span><br><span class="line">              createCell.setCellValue(<span class="string">"上报时间"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          <span class="keyword">if</span> ((<span class="string">"zhuangtai"</span>).equals(cols.get(j))) &#123;</span><br><span class="line">              createCell.setCellValue(<span class="string">"状态"</span>);</span><br><span class="line">          &#125;</span><br><span class="line">          createCell.setCellStyle(headerStyle);</span><br><span class="line">          createCell.setCellType(XSSFCell.CELL_TYPE_STRING);<span class="comment">// 变成文本型</span></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">int</span> i = <span class="number">2</span>;</span><br><span class="line">      <span class="keyword">for</span> (ReportAddition reportAddition : list) &#123;</span><br><span class="line">          List&lt;String&gt; cols2 = cols;</span><br><span class="line">          <span class="comment">// 创建一行</span></span><br><span class="line">          XSSFRow createRow = createSheet.createRow(i++);</span><br><span class="line">          <span class="comment">// createRow.setHeight((short) (15 * 20)); 行高不要了，加上会把默认换行抵消掉</span></span><br><span class="line">          <span class="comment">// 获取上报详情</span></span><br><span class="line">          List&lt;ReportAdditionDetail&gt; reportAdditionDetailList = reportAddition.getReportAdditionDetailList();</span><br><span class="line">          <span class="keyword">for</span> (<span class="keyword">int</span> j = <span class="number">0</span>; j &lt; cols2.size(); j++) &#123;</span><br><span class="line">              XSSFCell createCell = createRow.createCell(j);</span><br><span class="line">              <span class="keyword">if</span> ((<span class="string">"xuhao"</span>).equals(cols.get(j).toString())) &#123;</span><br><span class="line">                  String s = String.valueOf(i - <span class="number">2</span>);</span><br><span class="line">                  createCell.setCellValue(s);</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span> ((<span class="string">"mingcheng"</span>.equals(cols.get(j).toString()))) &#123;</span><br><span class="line">                  createCell.setCellValue(reportAddition.getDepartment().getName());</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span> (!(<span class="string">"zhuangtai"</span>).equals(cols.get(j)) &amp;&amp; !(<span class="string">"shijian"</span>).equals(cols.get(j).toString())) &#123;</span><br><span class="line">                  <span class="keyword">for</span> (ReportAdditionDetail reportAdditionDetail : reportAdditionDetailList) &#123;</span><br><span class="line">                      <span class="keyword">if</span> (reportAdditionDetail.getAdditionSecondConfig().getId().toString().equals(cols.get(j))) &#123;</span><br><span class="line">                          createCell.setCellValue(reportAdditionDetail.getContent());</span><br><span class="line">                      &#125;</span><br><span class="line">                  &#125;</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span> ((<span class="string">"shijian"</span>).equals(cols.get(j).toString())) &#123;</span><br><span class="line">                  createCell.setCellValue(ToolDate.formatTime(reportAddition.getCreateTime(), <span class="string">"yyyy-MM-dd"</span>, <span class="string">"时间为空"</span>));</span><br><span class="line">              &#125;</span><br><span class="line">              <span class="keyword">if</span> ((<span class="string">"zhuangtai"</span>).equals(cols.get(j).toString())) &#123;</span><br><span class="line">                  String reportState = <span class="string">""</span>;</span><br><span class="line">                  <span class="keyword">switch</span> (reportAddition.getState()) &#123;</span><br><span class="line">                      <span class="keyword">case</span> <span class="number">1</span>:</span><br><span class="line">                          reportState += <span class="string">"待审核"</span>;</span><br><span class="line">                          <span class="keyword">break</span>;</span><br><span class="line">                      <span class="keyword">case</span> <span class="number">3</span>:</span><br><span class="line">                          reportState += <span class="string">"未通过"</span>;</span><br><span class="line">                          <span class="keyword">break</span>;</span><br><span class="line">                      <span class="keyword">case</span> <span class="number">4</span>:</span><br><span class="line">                          reportState += <span class="string">"通过"</span>;</span><br><span class="line">                          <span class="keyword">break</span>;</span><br><span class="line">                      <span class="keyword">case</span> <span class="number">5</span>:</span><br><span class="line">                          reportState += <span class="string">"退回"</span>;</span><br><span class="line">                          <span class="keyword">break</span>;</span><br><span class="line">                      <span class="keyword">case</span> <span class="number">6</span>:</span><br><span class="line">                          reportState += <span class="string">"二次报送"</span>;</span><br><span class="line">                          <span class="keyword">break</span>;</span><br><span class="line">                      <span class="keyword">default</span>:</span><br><span class="line">                  &#125;</span><br><span class="line">                  createCell.setCellValue(reportState);</span><br><span class="line">              &#125;</span><br><span class="line">              createCell.setCellStyle(cellStyle);</span><br><span class="line">              <span class="comment">// 变成文本型</span></span><br><span class="line">              createCell.setCellType(XSSFCell.CELL_TYPE_STRING);</span><br><span class="line">          &#125;</span><br><span class="line"></span><br><span class="line">      &#125;</span><br><span class="line">      <span class="comment">// 最后输出</span></span><br><span class="line">      <span class="keyword">try</span> &#123;</span><br><span class="line">          response.setHeader(<span class="string">"content-Disposition"</span>,</span><br><span class="line">                  <span class="string">"attachment;filename="</span> + java.net.URLEncoder.encode(additionTitle, <span class="string">"UTF-8"</span>) + <span class="string">".xlsx"</span>);</span><br><span class="line">          excel.write(response.getOutputStream());</span><br><span class="line">      &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">          e.printStackTrace();</span><br><span class="line">      &#125;</span><br><span class="line">      <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure></p>
+
+      
+    </div>
+    
+    
+    
+    <div>
+      
+        <div>
+    
+        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+    
+</div>
+      
+    </div>
+
+    
+
+    
+      <div>
+        <div style="padding: 10px 0; margin: 20px auto; width: 90%; text-align: center;">
+  <div>辣条君~~</div>
+  <button id="rewardButton" disable="enable" onclick="var qr = document.getElementById('QR'); if (qr.style.display === 'none') {qr.style.display='block';} else {qr.style.display='none'}">
+    <span>打赏</span>
+  </button>
+  <div id="QR" style="display: none;">
+
+    
+      <div id="wechat" style="display: inline-block">
+        <img id="wechat_qr" src="/images/wechatpay.jpg" alt="Achun 微信支付"/>
+        <p>微信支付</p>
+      </div>
+    
+
+    
+      <div id="alipay" style="display: inline-block">
+        <img id="alipay_qr" src="/images/alipay.jpg" alt="Achun 支付宝"/>
+        <p>支付宝</p>
+      </div>
+    
+
+    
+
+  </div>
+</div>
+
+      </div>
+    
+
+    
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/日常总结/" rel="tag"><i class="fa fa-tag"></i> 日常总结</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/08/09/使用jquery下拉弹出多选框选择相应信息—20180809/" rel="next" title="使用jquery下拉弹出多选框选择相应信息—20180809">
+                <i class="fa fa-chevron-left"></i> 使用jquery下拉弹出多选框选择相应信息—20180809
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/08/09/批量导出Excel—2018-08-09/" rel="prev" title="批量导出Excel—2018-08-09">
+                批量导出Excel—2018-08-09 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <img class="site-author-image" itemprop="image"
+                src="/images/wycfight.jpg"
+                alt="Achun" />
+            
+              <p class="site-author-name" itemprop="name">Achun</p>
+              <p class="site-description motion-element" itemprop="description">越努力，越幸运</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">16</span>
+                  <span class="site-state-item-name">日志</span>
+                </a>
+              </div>
+            
+
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-tags">
+                <a href="/tags/index.html">
+                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-name">标签</span>
+                </a>
+              </div>
+            
+
+          </nav>
+
+          
+            <div class="feed-link motion-element">
+              <a href="/atom.xml" rel="alternate">
+                <i class="fa fa-rss"></i>
+                RSS
+              </a>
+            </div>
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/achuncoding" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://weibo.com/5778648089/profile?topnav=1&wvr=6&is_all=1" target="_blank" title="微博">
+                      
+                        <i class="fa fa-fw fa-weibo"></i>微博</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#准备工作"><span class="nav-number">1.</span> <span class="nav-text">准备工作</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#前台实现"><span class="nav-number">2.</span> <span class="nav-text">前台实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#后台实现"><span class="nav-number">3.</span> <span class="nav-text">后台实现</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#导出Excel"><span class="nav-number">4.</span> <span class="nav-text">导出Excel</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Achun</span>
+
+  
+    <span class="post-meta-divider">|</span>
+    <span class="post-meta-item-icon">
+      <i class="fa fa-area-chart"></i>
+    </span>
+    
+      <span class="post-meta-item-text">Site words total count&#58;</span>
+    
+    <span title="Site words total count">22.7k</span>
+  
+</div>
+
+
+  <div class="powered-by">由 <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a> 强力驱动</div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">主题 &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Muse</a> v5.1.4</div>
+
+
+
+<div class="theme-info">
+  <div class="powered-by"></div>
+  <span class="post-count">博客全站共22.7k字</span>
+</div>
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/canvas-nest/canvas-nest.min.js"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
+<script type="text/javascript" src="/js/src/love.js"></script>
+
+<script type="text/javascript"
+color="0,0,255" opacity='0.7' zIndex="-2" count="99" src="//cdn.bootcss.com/canvas-nest.js/1.0.0/canvas-nest.min.js"></script>
+
