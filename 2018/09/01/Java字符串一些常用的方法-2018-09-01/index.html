@@ -98,7 +98,7 @@
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/images/charAtDemo.png">
 <meta property="og:image" content="http://yoursite.com/images/indexOfDemo.png">
-<meta property="og:updated_time" content="2018-09-01T01:04:06.869Z">
+<meta property="og:updated_time" content="2018-11-25T05:47:16.805Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java字符串一些常用的方法 2018-09-01">
 <meta name="twitter:description" content="最近也不知道干什么，那么就记录一下自己平常看到的一些字符串操作的用法，感觉自己啥也不会。可能对于Java的理解一直在表面，因为身边的同学都是大神，所以要默默的记录，便于自己学习，发现不是学习的料。">
@@ -389,7 +389,7 @@
 <h2 id="参数"><a href="#参数" class="headerlink" title="参数"></a>参数</h2><p>index –字符串中索引的位置</p>
 <h2 id="返回值"><a href="#返回值" class="headerlink" title="返回值"></a>返回值</h2><p> 此方法返回这个字符串的指定索引处的char值。第一个char值的索引为0.</p>
 <h2 id="异常"><a href="#异常" class="headerlink" title="异常"></a>异常</h2><p>– 如果index参数为负或大于该字符串的长度.</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: wycfight@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 字符串中charAt的用法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2018-09-01 08:18</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@modify</span> By:</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharAtDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s = <span class="string">"Hello World"</span>;</span><br><span class="line">        <span class="comment">// 这里返回的index为4位置的字符 这里index默认是从0开始,可以判断字符串长度。有可能产生角标越界异常</span></span><br><span class="line">        System.out.println(s.charAt(<span class="number">4</span>));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@author</span>: wycfight@163.com</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@description</span>: 字符串中charAt的用法</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@create</span>: 2018-09-01 08:18</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@modify</span> By:</span></span><br><span class="line"><span class="comment"> **/</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CharAtDemo</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        String s = <span class="string">"Hello World"</span>;</span><br><span class="line">        <span class="comment">// 这里返回的index为4位置的字符 这里index默认是从0开始,可以判断字符串长度。有可能产生角标越界异常</span></span><br><span class="line">        System.out.println(s.charAt(<span class="number">4</span>));</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;இ</span><br></pre></td></tr></table></figure>
 <p>运行结果：<br><img src="/images/charAtDemo.png" alt="charAtDemo"></p>
 <h1 id="Contains的用法"><a href="#Contains的用法" class="headerlink" title="Contains的用法"></a>Contains的用法</h1><p>java.lang.String.contains() 方法返回true，当且仅当此字符串包含指定的char值序列</p>
 <h2 id="声明-1"><a href="#声明-1" class="headerlink" title="声明"></a>声明</h2><p>以下是声明java.lang.String.contains()方法</p>
@@ -498,6 +498,10 @@ System.out.println(&quot;s2 is contains 123:&quot; + contains);
 
           <div class="post-nav-prev post-nav-item">
             
+              <a href="/2019/02/23/Java后台面试总结/" rel="prev" title="Java后台面试总结">
+                Java后台面试总结 <i class="fa fa-chevron-right"></i>
+              </a>
+            
           </div>
         </div>
       
@@ -577,7 +581,7 @@ System.out.println(&quot;s2 is contains 123:&quot; + contains);
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">18</span>
+                  <span class="site-state-item-count">20</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -590,7 +594,7 @@ System.out.println(&quot;s2 is contains 123:&quot; + contains);
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">7</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -667,7 +671,7 @@ System.out.println(&quot;s2 is contains 123:&quot; + contains);
     <footer id="footer" class="footer">
       <div class="footer-inner">
         <script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
-<div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+<div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
@@ -681,7 +685,7 @@ System.out.println(&quot;s2 is contains 123:&quot; + contains);
     
       <span class="post-meta-item-text">Site words total count&#58;</span>
     
-    <span title="Site words total count">29.3k</span>
+    <span title="Site words total count">29.5k</span>
   
 </div>
 
@@ -700,7 +704,7 @@ System.out.println(&quot;s2 is contains 123:&quot; + contains);
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <span class="post-count">博客全站共29.3k字</span>
+  <span class="post-count">博客全站共29.5k字</span>
 </div>
 
         
