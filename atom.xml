@@ -204,9 +204,9 @@
       <category term="Web前端" scheme="http://yoursite.com/categories/Web%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="html" scheme="http://yoursite.com/tags/html/"/>
-    
       <category term="jquery" scheme="http://yoursite.com/tags/jquery/"/>
+    
+      <category term="html" scheme="http://yoursite.com/tags/html/"/>
     
   </entry>
   
