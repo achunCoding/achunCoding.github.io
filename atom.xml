@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-06T05:18:57.701Z</updated>
+  <updated>2019-03-09T12:05:05.463Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,6 +15,30 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>集合深入理解-Collection</title>
+    <link href="http://yoursite.com/2019/03/07/collections-study-interview/"/>
+    <id>http://yoursite.com/2019/03/07/collections-study-interview/</id>
+    <published>2019-03-07T09:22:22.000Z</published>
+    <updated>2019-03-09T12:05:05.463Z</updated>
+    
+    <content type="html"><![CDATA[<p>面向对象语言对事物的体现都是以对象的形式，所以为了方便对多个对象的操作，就要对对象进行存储，集合就是存储对象最常用的一种方式。集合可以对数据进行存储，检索，操作。使用集合的好处：编码更轻松，代码质量更上一层楼，减少学习新API的成本。所以学好集合是非常有必要的。<br><img src="/2019/03/07/collections-study-interview/collection-structure.jpg" alt="预览图"><br><a id="more"></a></p><h1 id="什么是集合"><a href="#什么是集合" class="headerlink" title="什么是集合"></a>什么是集合</h1><hr><ul><li>集合或者叫容器，是一个包含多个元素的对象；</li><li>集合可以对数据进行存储，检索，操作；</li><li>它们可以把许多个体组织成一个整体： <ul><li>比如一副扑克牌（许多牌组成的集合）;</li><li>比如一个电话本（许多姓名和号码的映射）。</li></ul></li></ul><h1 id="什么是集合框架"><a href="#什么是集合框架" class="headerlink" title="什么是集合框架"></a>什么是集合框架</h1><hr><h2 id="集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点："><a href="#集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点：" class="headerlink" title="集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点："></a>集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点：</h2><ul><li>接口：表示集合的抽象数据类型。接口允许我们操作集合时不必关注具体实现，从而达到“多态”。在面向对象编程语言中，接口通常用来形成规范。</li><li>实现类：集合接口的具体实现，是重用性很高的数据结构。</li><li>算法：用来根据需要对实体类中的对象进行计算，<ul><li>比如查找，排序。 </li><li>同一种算法可以对不同的集合实现类进行计算，这是利用了“多态”。<br>重用性很高。</li></ul></li></ul><h1 id="集合框架的好处"><a href="#集合框架的好处" class="headerlink" title="集合框架的好处"></a>集合框架的好处</h1><hr><ul><li>编码更轻松：Java 集合框架为我们提供了方便使用的数据结构和算法，让我们不用从头造轮子，直接操心上层业务就好了。</li><li>代码质量更上一层楼：Java集合框架经过几次升级迭代，数据结构和算法的性能已经优化地很棒了。由于是针对接口编程，不同实现类可以轻易互相替换。这么优雅的设计，省下你自己磨练多少工夫。</li><li>减少学习新 API 的成本：过去每个集合 API 下还有子 API 来对 API<br>进行操作，你得学好几层才能知道怎么使用，而且还容易出错。现在好了!有了标准的 Java 集合框架，每个 API 都继承自己顶层API，只负责具体实现，一口气学5个集合，不费劲！</li><li>照猫画虎也容易多了：由于顶层接口已经把基础方法都定义好了，你只要实现接口，把具体实现方法填好，再也不用操心架构设计。<h1 id="Java集合框架结构图"><a href="#Java集合框架结构图" class="headerlink" title="Java集合框架结构图"></a>Java集合框架结构图</h1></li></ul><hr><p><img src="/2019/03/07/collections-study-interview/collection-structure01.jpg" alt="集合框架"><br><strong>如上图所示，Java 的集合主要按两种接口分类：Collection, Map,Collection 接口<br>Collection 作为集合的一个根接口，定义了一组对象和它的子类需要实现的 15 个方法：</strong><br><img src="/2019/03/07/collections-study-interview/collection-method.png" alt="集合框架"></p><ul><li><font color="red">int size()</font>：获取元素的个数</li><li><font color="red">boolean isEmpty()</font>：是否个数为 0</li><li><font color="red">boolean contains(Object element)</font>：是否包含指定元素</li><li><font color="red">boolean add(E element)</font>：添加元素，成功时返回 true</li><li><font color="red">boolean remove(Object element)</font>：删除元素，成功时返回 true</li><li><font color="red">Iterator<e> iterator()</e></font>：获取迭代器<br><strong>一些操作集合的方法：</strong></li><li><font color="red">boolean containsAll(Collection&lt;?&gt; c)</font> ：是否包含指定集合 c 的全部元素</li><li><font color="red">boolean addAll(Collection&lt;? extends E&gt; c) </font>：添加集合 c 中所有的元素到本集合中，如果集合有改变就返回 true</li><li><font color="red">boolean removeAll(Collection&lt;?&gt; c)</font> ：删除本集合中和 c 集合中一致的元素，如果集合有改变就返回 true</li><li><font color="red">boolean retainAll(Collection&lt;?&gt; c)</font> ：保留本集合中 c 集合中两者共有的，如果集合有改变就返回 true</li><li><font color="red">void clear()</font> ：删除所有元素<br><strong>对数组的操作：</strong></li><li><font color="red">Object[] toArray()</font> ：返回一个包含集合中所有元素的数组</li><li><font color="red"><t> T[] toArray(T[] a)</t></font>：返回一个包含集合中所有元素的数组，运行时根据集合元素的类型指定数组的类型<br><strong>JDK 8 以后，Collection 接口还提供了从集合获取连续的或者并行流：</strong></li><li><font color="red">Stream<e> stream()</e></font></li><li><font color="red">Stream<e> parallelStream()</e></font><br><strong>遍历Collection的方法</strong><ol><li>for-each语法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Book book : bookList) &#123;</span><br><span class="line">            System.out.println(book.getName());</span><br><span class="line">        &#125;</span><br><span class="line">```        </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 使用 Iterator 迭代器</span><br><span class="line">```java</span><br><span class="line">Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        Iterator&lt;Book&gt; iterator = bookList.iterator();</span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">            System.out.println(iterator.next().getName());</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure></li></ol></li></ul><ol start="3"><li>使用 aggregate operations 聚合操作<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        bookList.stream().forEach(<span class="keyword">new</span> Consumer&lt;Book&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Book book)</span> </span>&#123;</span><br><span class="line">                System.out.println(book.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure></li></ol><p><strong>在 JDK 8 以后，推荐使用聚合操作对一个集合进行操作。聚合操作通常和 lambda 表达式结合使用，让代码看起来更简洁（因此可能更难理解）。下面举几个简单的栗子：</strong><br>1.使用流来遍历一个 bookList，然后输出书名是Java从入门到入土的元素：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bookList.stream()</span><br><span class="line">        .filter(e -&gt; e.getName() == <span class="string">"Java从入门到入土"</span>)</span><br><span class="line">        .forEach(e -&gt; System.out.println(e.getPrice()));</span><br></pre></td></tr></table></figure></p><p>2.还可以获取一个并行流（parallelStream），当集合元素很多时使用可以提高效率：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bookList.parallelStream()</span><br><span class="line">        .filter(e -&gt; e.getName() == <span class="string">"Java从入门到入土"</span>)</span><br><span class="line">        .forEach(e -&gt; System.out.println(e.getPrice()));</span><br><span class="line">```        </span><br><span class="line"><span class="number">3</span>.聚合操作还有很多操作集合的方法，比如说你想把 Collection 中的元素都转成 String 对象，然后把它们 连起来：</span><br><span class="line">```java</span><br><span class="line">Book book = <span class="keyword">new</span> Book(<span class="number">1L</span>,<span class="string">"哈哈01"</span>,<span class="number">2000L</span>);</span><br><span class="line">        Book book1 = <span class="keyword">new</span> Book(<span class="number">2L</span>,<span class="string">"哈哈02"</span>,<span class="number">3000L</span>);</span><br><span class="line">        Book book2 = <span class="keyword">new</span> Book(<span class="number">3L</span>,<span class="string">"哈哈03"</span>,<span class="number">4000L</span>);</span><br><span class="line">        Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        bookList.add(book);</span><br><span class="line">        bookList.add(book2);</span><br><span class="line">        bookList.add(book1);</span><br><span class="line">        <span class="comment">// 重点</span></span><br><span class="line">        String collect = bookList.stream()</span><br><span class="line">                .map(Object::toString)</span><br><span class="line">                .collect(Collectors.joining(<span class="string">","</span>));</span><br><span class="line">        System.out.println(collect);</span><br></pre></td></tr></table></figure></p><p>聚合操作还有很多功能，这里仅做介绍，想要了解更多可以查看<a href="https://docs.oracle.com/javase/tutorial/collections/streams/index.html" target="_blank" rel="noopener">Aggregate Operations 官方指引</a></p><p>  <strong>结合 Collection 和 Iterator 可以实现一些复用性很强的方法，比如这样：</strong><br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">filter</span><span class="params">(Collection&lt;?&gt; c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Iterator&lt;?&gt; it = c.iterator(); it.hasNext(); )</span><br><span class="line">        <span class="keyword">if</span> (!condition(it.next()))</span><br><span class="line">            it.remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><strong>这个 filter 方法是多态的，可以用于所有 Collection 的子类、实现类。 这个例子说明了使用 Java 集合框架我们可以很随便就写出 “优雅，可拓展，复用性强” 的代码~</strong></p><h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr><p><strong>Collection 接口是类集合框架的基础之一。<br>它创建所有类集都将拥有的 15 个核心方法。<br>因为几乎所有集合类集都实现了Collection接口，所以熟悉它对于清楚地理解框架是必要的。接下来将逐步了解集合框架的各个子接口及实现类。<br>parallel 应该是并行，而不是并发。并发与并行的概念区别还是挺大的</strong>。<br><img src="/2019/03/07/collections-study-interview/collection-parallel.jpg" alt="预览图"><br>转载自：<a href="https://blog.csdn.net/u011240877/article/details/52773577" target="_blank" rel="noopener">Java 集合深入理解（3）：Collection</a></p>]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;面向对象语言对事物的体现都是以对象的形式，所以为了方便对多个对象的操作，就要对对象进行存储，集合就是存储对象最常用的一种方式。集合可以对数据进行存储，检索，操作。使用集合的好处：编码更轻松，代码质量更上一层楼，减少学习新API的成本。所以学好集合是非常有必要的。&lt;br&gt;&lt;img src=&quot;/2019/03/07/collections-study-interview/collection-structure.jpg&quot; alt=&quot;预览图&quot;&gt;&lt;br&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
+    
+    
+      <category term="Java" scheme="http://yoursite.com/tags/Java/"/>
+    
+      <category term="集合" scheme="http://yoursite.com/tags/%E9%9B%86%E5%90%88/"/>
+    
+  </entry>
   
   <entry>
     <title>Spring学习(一)</title>
@@ -272,9 +296,9 @@
       <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
     
     
-      <category term="日常总结" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93/"/>
-    
       <category term="多线程" scheme="http://yoursite.com/tags/%E5%A4%9A%E7%BA%BF%E7%A8%8B/"/>
+    
+      <category term="日常总结" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   
@@ -320,9 +344,9 @@
       <category term="Web后台" scheme="http://yoursite.com/categories/Web%E5%90%8E%E5%8F%B0/"/>
     
     
-      <category term="Hibernate" scheme="http://yoursite.com/tags/Hibernate/"/>
-    
       <category term="日常积累" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/"/>
+    
+      <category term="Hibernate" scheme="http://yoursite.com/tags/Hibernate/"/>
     
   </entry>
   
@@ -344,9 +368,9 @@
       <category term="Web后台" scheme="http://yoursite.com/categories/Web%E5%90%8E%E5%8F%B0/"/>
     
     
-      <category term="Hibernate" scheme="http://yoursite.com/tags/Hibernate/"/>
-    
       <category term="日常积累" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/"/>
+    
+      <category term="Hibernate" scheme="http://yoursite.com/tags/Hibernate/"/>
     
   </entry>
   
@@ -368,9 +392,9 @@
       <category term="Web前端" scheme="http://yoursite.com/categories/Web%E5%89%8D%E7%AB%AF/"/>
     
     
-      <category term="日常积累" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/"/>
-    
       <category term="Javascript" scheme="http://yoursite.com/tags/Javascript/"/>
+    
+      <category term="日常积累" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/"/>
     
   </entry>
   
@@ -467,30 +491,6 @@
       <category term="日常积累" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E7%A7%AF%E7%B4%AF/"/>
     
       <category term="MySQL" scheme="http://yoursite.com/tags/MySQL/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java从零开始—反射</title>
-    <link href="http://yoursite.com/2018/06/01/Java%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E2%80%94%E5%8F%8D%E5%B0%84/"/>
-    <id>http://yoursite.com/2018/06/01/Java从零开始—反射/</id>
-    <published>2018-05-31T23:02:10.000Z</published>
-    <updated>2019-03-04T14:41:47.718Z</updated>
-    
-    <content type="html"><![CDATA[<p>从这篇文章之后，记录自己从零开始学习Java基础。时光是美好的，我们应该去尽情地去享受。<br>改变，永远不嫌晚，就怕你不去改变，而在原地踏步。以后写的文章，都是参考网上资料。会写明出处<br>这篇文章主要是反射，写文章的目的，主要是供自己方便查看。也会给别人带来方便。<br><a id="more"></a></p><p><font color="red" face="黑体" size="5">反射是框架设计的灵魂</font><br>    <font color="red" size="3">（使用的前提条件：必须先得到代表的字节码的Class，Class类用于表示.class文件（字节码））</font></p><h1 id="一、反射的概述"><a href="#一、反射的概述" class="headerlink" title="一、反射的概述"></a>一、反射的概述</h1><p>JAVA反射机制是在运行状态中，对于任意一个类，都能够知道这个类的所有属性和方法；对于任意一个对象，都能够调用它的任意一个方法和属性；这种动态获取的信息以及动态调用对象的方法的功能称为java语言的反射机制。<br>要想解剖一个类,必须先要获取到该类的字节码文件对象。而解剖使用的就是Class类中的方法.所以先要获取到每一个字节码文件对应的Class类型的对象.</p><p>以上的总结就是什么是反射</p><p><font color="red" face="黑体" size="4">反射就是把java类中的各种成分映射成一个个的Java对象</font><br>例如：一个类有：成员变量、方法、构造方法、包等等信息，利用反射技术可以对一个类进行解剖，把个个组成部分映射成一个个对象。<br>     （其实：一个类中这些成员方法、构造方法、在加入类中都有一个类来描述）<br>如图是类的正常加载过程：反射的原理在与class对象。<br>熟悉一下加载的时候：Class对象的由来是将class文件读入内存，并为之创建一个Class对象。<br><img src="/2018/06/01/Java从零开始—反射/reflection.png" alt="反射原理图"><br>其中这个Class对象很特殊。我们先了解一下这个Class类</p><h1 id="二、查看Class类在java中的api详解（1-6的API）"><a href="#二、查看Class类在java中的api详解（1-6的API）" class="headerlink" title="二、查看Class类在java中的api详解（1.6的API）"></a>二、查看Class类在java中的api详解（1.6的API）</h1><p><img src="/2018/06/01/Java从零开始—反射/jdkapi.png" alt="jdkClass&lt;T&gt;对象"><br>    <font color="red">Class</font> 类的实例表示正在运行的 Java 应用程序中的类和接口。也就是jvm中有N多的实例每个类都有该<font color="red">Class</font>对象。（包括基本数据类型）<br>Class 没有公共构造方法。<font color="red">Class</font> 对象是在加载类时由 Java 虚拟机以及通过调用类加载器中的<font color="red">defineClass </font> 方法自动构造的。也就是这不需要我们自己去处理创建，JVM已经帮我们创建好了。</p><p>没有公共的构造方法，方法共有64个太多了。下面用到哪个就详解哪个吧<br><img src="/2018/06/01/Java从零开始—反射/jdkmethod.png" alt="jdkClass&lt;T&gt;对象"> </p><h1 id="三、反射的使用-这里使用Student类做演示"><a href="#三、反射的使用-这里使用Student类做演示" class="headerlink" title="三、反射的使用(这里使用Student类做演示)"></a>三、反射的使用(这里使用Student类做演示)</h1><p>先编写Student类</p><h2 id="1、-获取Class对象的三种方式"><a href="#1、-获取Class对象的三种方式" class="headerlink" title="1、 获取Class对象的三种方式"></a>1、 获取Class对象的三种方式</h2><p>1.1 Object ——&gt; getClass();<br>1.2 任何数据类型（包括基本数据类型）都有一个“静态”的class属性<br>1.3 通过Class类的静态方法：forName（String  className）(常用)</p><p>其中1.1是因为Object类中的getClass方法、因为所有类都继承Object类。从而调用Object类来获取<br><img src="/2018/06/01/Java从零开始—反射/jdkgetclass.png" alt="jdkClass&lt;T&gt;对象"><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br></pre></td><td class="code"><pre><span class="line">package top.wycfight.study;</span><br><span class="line"></span><br><span class="line">/**</span><br><span class="line"> * @Author: wycfight@163.com</span><br><span class="line"> * @Description: Java基础-反射</span><br><span class="line"> *   获取Class对象的三种方式</span><br><span class="line"> *   1. Object ——&gt; getClass();</span><br><span class="line"> *   2. 任何数据类型 (包括基本数据类型) 都有一个<span class="string">"静态"</span>的class属性</span><br><span class="line"> *   3. 通过Class类的静态方法： forName(String className)(常用)</span><br><span class="line"> * @Date: Created <span class="keyword">in</span> 6:43 2018/6/1</span><br><span class="line"> * @Modified By:</span><br><span class="line"> */</span><br><span class="line">public class Reflection &#123;</span><br><span class="line">    public static void main(String[] args) &#123;</span><br><span class="line">        // 第一种方式获取 new 会残生一个Student对象 和Class对象</span><br><span class="line">        Student student = new Student();</span><br><span class="line">        Class stuClass = student.getClass();</span><br><span class="line">        System.out.println(stuClass.getName());</span><br><span class="line"></span><br><span class="line">        // 第二种方式获取 class 对象</span><br><span class="line">        Class stuClass2 = Student.class;</span><br><span class="line">        // 判断两种方式获取到的Class对象是否是同一个</span><br><span class="line">        System.out.println(stuClass2.equals(stuClass));</span><br><span class="line"></span><br><span class="line">        // 第三种方式获取 （常用）</span><br><span class="line">        try &#123;</span><br><span class="line">            // forName 必须使用 包名.类名的形式</span><br><span class="line">            Class stuClass3  = Class.forName(<span class="string">"top.wycfight.study.Student"</span>);</span><br><span class="line">            // 判断三种获取的是否是通过一个对象</span><br><span class="line">            System.out.println(stuClass3 == stuClass2);</span><br><span class="line">        &#125; catch (ClassNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p><p><font size="4">注意：在运行期间，一个类，只有一个Class对象产生。</font><br>三种方式常用第三种，第一种对象都有了还要反射干什么。第二种需要导入类的包，依赖太强，不导包就抛编译错误。一般都第三种，一个字符串可以传入也可写在配置文件中等多种方法。</p><p>搬运来自：    <a href="https://blog.csdn.net/sinat_38259539/article/details/71799078" target="_blank" rel="noopener">https://blog.csdn.net/sinat_38259539/article/details/71799078</a>  Java基础之—反射（非常重要）</p>]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;从这篇文章之后，记录自己从零开始学习Java基础。时光是美好的，我们应该去尽情地去享受。&lt;br&gt;改变，永远不嫌晚，就怕你不去改变，而在原地踏步。以后写的文章，都是参考网上资料。会写明出处&lt;br&gt;这篇文章主要是反射，写文章的目的，主要是供自己方便查看。也会给别人带来方便。&lt;br&gt;&lt;/p&gt;
-    
-    </summary>
-    
-      <category term="Java" scheme="http://yoursite.com/categories/Java/"/>
-    
-    
-      <category term="反射" scheme="http://yoursite.com/tags/%E5%8F%8D%E5%B0%84/"/>
-    
-      <category term="日常总结" scheme="http://yoursite.com/tags/%E6%97%A5%E5%B8%B8%E6%80%BB%E7%BB%93/"/>
     
   </entry>
   

@@ -6,19 +6,25 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Category: Web后台 | 阿春的博客</title>
+  <title>集合深入理解-Collection | 阿春的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="淄博职业学院15级，从事Java后台开发。此为博客一枚。">
-<meta name="keywords" content="js,jquery,javascript,Spring,Java,MySQL">
-<meta property="og:type" content="website">
-<meta property="og:title" content="阿春的博客">
-<meta property="og:url" content="http://yoursite.com/categories/Web后台/index.html">
+  <meta name="description" content="面向对象语言对事物的体现都是以对象的形式，所以为了方便对多个对象的操作，就要对对象进行存储，集合就是存储对象最常用的一种方式。集合可以对数据进行存储，检索，操作。使用集合的好处：编码更轻松，代码质量更上一层楼，减少学习新API的成本。所以学好集合是非常有必要的。">
+<meta name="keywords" content="Java,集合">
+<meta property="og:type" content="article">
+<meta property="og:title" content="集合深入理解-Collection">
+<meta property="og:url" content="http://yoursite.com/2019/03/07/collections-study-interview/index.html">
 <meta property="og:site_name" content="阿春的博客">
-<meta property="og:description" content="淄博职业学院15级，从事Java后台开发。此为博客一枚。">
+<meta property="og:description" content="面向对象语言对事物的体现都是以对象的形式，所以为了方便对多个对象的操作，就要对对象进行存储，集合就是存储对象最常用的一种方式。集合可以对数据进行存储，检索，操作。使用集合的好处：编码更轻松，代码质量更上一层楼，减少学习新API的成本。所以学好集合是非常有必要的。">
 <meta property="og:locale" content="zh-Hans">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/collections-study-interview/collection-structure.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/collections-study-interview/collection-structure01.jpg">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/collections-study-interview/collection-method.png">
+<meta property="og:image" content="http://yoursite.com/2019/03/07/collections-study-interview/collection-parallel.jpg">
+<meta property="og:updated_time" content="2019-03-09T12:05:05.463Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="阿春的博客">
-<meta name="twitter:description" content="淄博职业学院15级，从事Java后台开发。此为博客一枚。">
+<meta name="twitter:title" content="集合深入理解-Collection">
+<meta name="twitter:description" content="面向对象语言对事物的体现都是以对象的形式，所以为了方便对多个对象的操作，就要对对象进行存储，集合就是存储对象最常用的一种方式。集合可以对数据进行存储，检索，操作。使用集合的好处：编码更轻松，代码质量更上一层楼，减少学习新API的成本。所以学好集合是非常有必要的。">
+<meta name="twitter:image" content="http://yoursite.com/2019/03/07/collections-study-interview/collection-structure.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿春的博客" type="application/atom+xml">
   
@@ -168,36 +174,99 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-collections-study-interview" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2019" class="archive-year">2019</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2019/03/06/study-spring-detail01/" class="archive-article-date">
-  	<time datetime="2019-03-06T02:16:27.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-06</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2019/03/06/study-spring-detail01/">Spring学习(一)</a>
+    <h1 class="article-title" itemprop="name">
+      集合深入理解-Collection
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2019/03/07/collections-study-interview/" class="archive-article-date">
+  	<time datetime="2019-03-07T09:22:22.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-07</time>
+</a>
+        
+      </header>
+      <div align="center" class="post-count">
+    字数：1,661字 | 预计阅读时长：6分钟
+      </div>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>面向对象语言对事物的体现都是以对象的形式，所以为了方便对多个对象的操作，就要对对象进行存储，集合就是存储对象最常用的一种方式。集合可以对数据进行存储，检索，操作。使用集合的好处：编码更轻松，代码质量更上一层楼，减少学习新API的成本。所以学好集合是非常有必要的。<br><img src="/2019/03/07/collections-study-interview/collection-structure.jpg" alt="预览图"><br><a id="more"></a></p>
+<h1 id="什么是集合"><a href="#什么是集合" class="headerlink" title="什么是集合"></a>什么是集合</h1><hr>
+<ul>
+<li>集合或者叫容器，是一个包含多个元素的对象；</li>
+<li>集合可以对数据进行存储，检索，操作；</li>
+<li>它们可以把许多个体组织成一个整体： <ul>
+<li>比如一副扑克牌（许多牌组成的集合）;</li>
+<li>比如一个电话本（许多姓名和号码的映射）。</li>
+</ul>
+</li>
+</ul>
+<h1 id="什么是集合框架"><a href="#什么是集合框架" class="headerlink" title="什么是集合框架"></a>什么是集合框架</h1><hr>
+<h2 id="集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点："><a href="#集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点：" class="headerlink" title="集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点："></a>集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点：</h2><ul>
+<li>接口：表示集合的抽象数据类型。接口允许我们操作集合时不必关注具体实现，从而达到“多态”。在面向对象编程语言中，接口通常用来形成规范。</li>
+<li>实现类：集合接口的具体实现，是重用性很高的数据结构。</li>
+<li>算法：用来根据需要对实体类中的对象进行计算，<ul>
+<li>比如查找，排序。 </li>
+<li>同一种算法可以对不同的集合实现类进行计算，这是利用了“多态”。<br>重用性很高。</li>
+</ul>
+</li>
+</ul>
+<h1 id="集合框架的好处"><a href="#集合框架的好处" class="headerlink" title="集合框架的好处"></a>集合框架的好处</h1><hr>
+<ul>
+<li>编码更轻松：Java 集合框架为我们提供了方便使用的数据结构和算法，让我们不用从头造轮子，直接操心上层业务就好了。</li>
+<li>代码质量更上一层楼：Java集合框架经过几次升级迭代，数据结构和算法的性能已经优化地很棒了。由于是针对接口编程，不同实现类可以轻易互相替换。这么优雅的设计，省下你自己磨练多少工夫。</li>
+<li>减少学习新 API 的成本：过去每个集合 API 下还有子 API 来对 API<br>进行操作，你得学好几层才能知道怎么使用，而且还容易出错。现在好了!有了标准的 Java 集合框架，每个 API 都继承自己顶层API，只负责具体实现，一口气学5个集合，不费劲！</li>
+<li>照猫画虎也容易多了：由于顶层接口已经把基础方法都定义好了，你只要实现接口，把具体实现方法填好，再也不用操心架构设计。<h1 id="Java集合框架结构图"><a href="#Java集合框架结构图" class="headerlink" title="Java集合框架结构图"></a>Java集合框架结构图</h1></li>
+</ul>
+<hr>
+<p><img src="/2019/03/07/collections-study-interview/collection-structure01.jpg" alt="集合框架"><br><strong>如上图所示，Java 的集合主要按两种接口分类：Collection, Map,Collection 接口<br>Collection 作为集合的一个根接口，定义了一组对象和它的子类需要实现的 15 个方法：</strong><br><img src="/2019/03/07/collections-study-interview/collection-method.png" alt="集合框架"></p>
+<ul>
+<li><font color="red">int size()</font>：获取元素的个数</li>
+<li><font color="red">boolean isEmpty()</font>：是否个数为 0</li>
+<li><font color="red">boolean contains(Object element)</font>：是否包含指定元素</li>
+<li><font color="red">boolean add(E element)</font>：添加元素，成功时返回 true</li>
+<li><font color="red">boolean remove(Object element)</font>：删除元素，成功时返回 true</li>
+<li><font color="red">Iterator<e> iterator()</e></font>：获取迭代器<br><strong>一些操作集合的方法：</strong></li>
+<li><font color="red">boolean containsAll(Collection&lt;?&gt; c)</font> ：是否包含指定集合 c 的全部元素</li>
+<li><font color="red">boolean addAll(Collection&lt;? extends E&gt; c) </font>：添加集合 c 中所有的元素到本集合中，如果集合有改变就返回 true</li>
+<li><font color="red">boolean removeAll(Collection&lt;?&gt; c)</font> ：删除本集合中和 c 集合中一致的元素，如果集合有改变就返回 true</li>
+<li><font color="red">boolean retainAll(Collection&lt;?&gt; c)</font> ：保留本集合中 c 集合中两者共有的，如果集合有改变就返回 true</li>
+<li><font color="red">void clear()</font> ：删除所有元素<br><strong>对数组的操作：</strong></li>
+<li><font color="red">Object[] toArray()</font> ：返回一个包含集合中所有元素的数组</li>
+<li><font color="red"><t> T[] toArray(T[] a)</t></font>：返回一个包含集合中所有元素的数组，运行时根据集合元素的类型指定数组的类型<br><strong>JDK 8 以后，Collection 接口还提供了从集合获取连续的或者并行流：</strong></li>
+<li><font color="red">Stream<e> stream()</e></font></li>
+<li><font color="red">Stream<e> parallelStream()</e></font><br><strong>遍历Collection的方法</strong><ol>
+<li>for-each语法<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        <span class="keyword">for</span> (Book book : bookList) &#123;</span><br><span class="line">            System.out.println(book.getName());</span><br><span class="line">        &#125;</span><br><span class="line">```        </span><br><span class="line"></span><br><span class="line"><span class="number">2</span>. 使用 Iterator 迭代器</span><br><span class="line">```java</span><br><span class="line">Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        Iterator&lt;Book&gt; iterator = bookList.iterator();</span><br><span class="line">        <span class="keyword">while</span> (iterator.hasNext()) &#123;</span><br><span class="line">            System.out.println(iterator.next().getName());</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<ol start="3">
+<li>使用 aggregate operations 聚合操作<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        bookList.stream().forEach(<span class="keyword">new</span> Consumer&lt;Book&gt;() &#123;</span><br><span class="line">            <span class="meta">@Override</span></span><br><span class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">accept</span><span class="params">(Book book)</span> </span>&#123;</span><br><span class="line">                System.out.println(book.getName());</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;);</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p><strong>在 JDK 8 以后，推荐使用聚合操作对一个集合进行操作。聚合操作通常和 lambda 表达式结合使用，让代码看起来更简洁（因此可能更难理解）。下面举几个简单的栗子：</strong><br>1.使用流来遍历一个 bookList，然后输出书名是Java从入门到入土的元素：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">bookList.stream()</span><br><span class="line">        .filter(e -&gt; e.getName() == <span class="string">"Java从入门到入土"</span>)</span><br><span class="line">        .forEach(e -&gt; System.out.println(e.getPrice()));</span><br></pre></td></tr></table></figure></p>
+<p>2.还可以获取一个并行流（parallelStream），当集合元素很多时使用可以提高效率：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">bookList.parallelStream()</span><br><span class="line">        .filter(e -&gt; e.getName() == <span class="string">"Java从入门到入土"</span>)</span><br><span class="line">        .forEach(e -&gt; System.out.println(e.getPrice()));</span><br><span class="line">```        </span><br><span class="line"><span class="number">3</span>.聚合操作还有很多操作集合的方法，比如说你想把 Collection 中的元素都转成 String 对象，然后把它们 连起来：</span><br><span class="line">```java</span><br><span class="line">Book book = <span class="keyword">new</span> Book(<span class="number">1L</span>,<span class="string">"哈哈01"</span>,<span class="number">2000L</span>);</span><br><span class="line">        Book book1 = <span class="keyword">new</span> Book(<span class="number">2L</span>,<span class="string">"哈哈02"</span>,<span class="number">3000L</span>);</span><br><span class="line">        Book book2 = <span class="keyword">new</span> Book(<span class="number">3L</span>,<span class="string">"哈哈03"</span>,<span class="number">4000L</span>);</span><br><span class="line">        Collection&lt;Book&gt; bookList = <span class="keyword">new</span> ArrayList&lt;Book&gt;();</span><br><span class="line">        bookList.add(book);</span><br><span class="line">        bookList.add(book2);</span><br><span class="line">        bookList.add(book1);</span><br><span class="line">        <span class="comment">// 重点</span></span><br><span class="line">        String collect = bookList.stream()</span><br><span class="line">                .map(Object::toString)</span><br><span class="line">                .collect(Collectors.joining(<span class="string">","</span>));</span><br><span class="line">        System.out.println(collect);</span><br></pre></td></tr></table></figure></p>
+<p>聚合操作还有很多功能，这里仅做介绍，想要了解更多可以查看<a href="https://docs.oracle.com/javase/tutorial/collections/streams/index.html" target="_blank" rel="noopener">Aggregate Operations 官方指引</a></p>
+<p>  <strong>结合 Collection 和 Iterator 可以实现一些复用性很强的方法，比如这样：</strong><br>  <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">  <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">filter</span><span class="params">(Collection&lt;?&gt; c)</span> </span>&#123;</span><br><span class="line">    <span class="keyword">for</span> (Iterator&lt;?&gt; it = c.iterator(); it.hasNext(); )</span><br><span class="line">        <span class="keyword">if</span> (!condition(it.next()))</span><br><span class="line">            it.remove();</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
+<p><strong>这个 filter 方法是多态的，可以用于所有 Collection 的子类、实现类。 这个例子说明了使用 Java 集合框架我们可以很随便就写出 “优雅，可拓展，复用性强” 的代码~</strong></p>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><hr>
+<p><strong>Collection 接口是类集合框架的基础之一。<br>它创建所有类集都将拥有的 15 个核心方法。<br>因为几乎所有集合类集都实现了Collection接口，所以熟悉它对于清楚地理解框架是必要的。接下来将逐步了解集合框架的各个子接口及实现类。<br>parallel 应该是并行，而不是并发。并发与并行的概念区别还是挺大的</strong>。<br><img src="/2019/03/07/collections-study-interview/collection-parallel.jpg" alt="预览图"><br>转载自：<a href="https://blog.csdn.net/u011240877/article/details/52773577" target="_blank" rel="noopener">Java 集合深入理解（3）：Collection</a></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -207,368 +276,157 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color2">Spring</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">集合</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web后台//" class="article-tag-list-link color1">Web后台</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
       
-        </div></section>
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/Java//" class="article-tag-list-link color5">Java</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
       
+
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/08/09/批量导出Excel/" class="archive-article-date">
-  	<time datetime="2018-08-09T05:50:07.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-08-09</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/08/09/批量导出Excel/">批量导出Excel</a>
-    </h1>
-  
+      </div>
+    </span>
+  </div>
+</div>
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常积累</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POI</a>
-        		</li>
-      		
-		</ul>
-	</div>
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/07/collections-study-interview/" alt="微信分享二维码">
+    </div>
+</div>
 
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web后台//" class="article-tag-list-link color1">Web后台</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/29/Hibernate-中利用Sql进行查询/" class="archive-article-date">
-  	<time datetime="2018-06-29T01:20:52.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
+<nav id="article-nav">
+  
+  
+    <a href="/2019/03/06/study-spring-detail01/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Spring学习(一)</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/29/Hibernate-中利用Sql进行查询/">Hibernate 中利用Sql进行查询</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常积累</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web后台//" class="article-tag-list-link color1">Web后台</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是集合"><span class="toc-number">1.</span> <span class="toc-text">什么是集合</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#什么是集合框架"><span class="toc-number">2.</span> <span class="toc-text">什么是集合框架</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点："><span class="toc-number">2.1.</span> <span class="toc-text">集合框架是一个代表、操作集合的统一架构。所有的集合框架都包含以下几点：</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#集合框架的好处"><span class="toc-number">3.</span> <span class="toc-text">集合框架的好处</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Java集合框架结构图"><span class="toc-number">4.</span> <span class="toc-text">Java集合框架结构图</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">5.</span> <span class="toc-text">总结</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/29/Hibernate用Sql查询in的用法/" class="archive-article-date">
-  	<time datetime="2018-06-29T00:27:23.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-29</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/29/Hibernate用Sql查询in的用法/">Hibernate用Sql查询in的用法</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常积累</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Hibernate</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web后台//" class="article-tag-list-link color1">Web后台</a>
-        		</li>
-      		
-		</ul>
-	</div>
+        
+    </div>
+</aside>
 
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/06/28/云MAS-发送短信/" class="archive-article-date">
-  	<time datetime="2018-06-28T00:30:36.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-06-28</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/06/28/云MAS-发送短信/">云MAS 发送短信</a>
-    </h1>
-  
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常积累</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">HttpClient</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web后台//" class="article-tag-list-link color1">Web后台</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/30/模板导出Excel/" class="archive-article-date">
-  	<time datetime="2018-05-29T22:38:03.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-30</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/30/模板导出Excel/">模板导出Excel;</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常积累</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">POI</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web后台//" class="article-tag-list-link color1">Web后台</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/05/24/Java-使用-jacob-将微软office中-word-excel-ppt-jpg转成pdf/" class="archive-article-date">
-  	<time datetime="2018-05-23T23:20:17.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-05-24</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/05/24/Java-使用-jacob-将微软office中-word-excel-ppt-jpg转成pdf/">Java 使用 jacob 将微软office中 word excel ppt转成pdf</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">日常积累</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">Java</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">pdf</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/categories/Web后台//" class="article-tag-list-link color1">Web后台</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
   
   
-    </div></section>
   
 
-    
+  
+
+  
+   <!-- 来必力City版安装代码 -->
+<div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk5NS8xOTU0MQ==">
+<script type="text/javascript">
+   (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+
+       if (typeof LivereTower === 'function') { return; }
+
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+
+       e.parentNode.insertBefore(j, e);
+   })(document, 'script');
+</script>
+<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
+</div>
+<!-- City版安装代码已完成 -->
+
+
+  
+
+  
 
 
           </div>
@@ -597,10 +455,10 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
-		isCategory: true,
+		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,
 		root: "/",
