@@ -6,20 +6,22 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Java后台面试总结 | 阿春的博客</title>
+  <title>Java后台面试总结（一） | 阿春的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="Java后台面试总结">
+  <meta name="description" content="这里记录一下面试的问题，方便自己查看和学习，good good study, day day up!。">
 <meta name="keywords" content="Java,面试总结">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java后台面试总结">
+<meta property="og:title" content="Java后台面试总结（一）">
 <meta property="og:url" content="http://yoursite.com/2019/02/23/java-interview/index.html">
 <meta property="og:site_name" content="阿春的博客">
-<meta property="og:description" content="Java后台面试总结">
+<meta property="og:description" content="这里记录一下面试的问题，方便自己查看和学习，good good study, day day up!。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-03-04T14:50:53.651Z">
+<meta property="og:image" content="http://yoursite.com/2019/02/23/java-interview/interview-strive.jpg">
+<meta property="og:updated_time" content="2019-03-12T01:30:55.427Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java后台面试总结">
-<meta name="twitter:description" content="Java后台面试总结">
+<meta name="twitter:title" content="Java后台面试总结（一）">
+<meta name="twitter:description" content="这里记录一下面试的问题，方便自己查看和学习，good good study, day day up!。">
+<meta name="twitter:image" content="http://yoursite.com/2019/02/23/java-interview/interview-strive.jpg">
   
     <link rel="alternative" href="/atom.xml" title="阿春的博客" type="application/atom+xml">
   
@@ -71,9 +73,9 @@
 			</ul>
 		</nav>
 		<nav>
-    		总文章数 23
+    		总文章数 25
 		</nav>
-		总字数 <span class="post-count">37.1k</span>
+		总字数 <span class="post-count">39.5k</span>
 
 		<nav class="header-smart-menu">
     		
@@ -176,7 +178,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      Java后台面试总结
+      Java后台面试总结（一）
     </h1>
   
 
@@ -187,13 +189,58 @@
         
       </header>
       <div align="center" class="post-count">
-    字数：7字 | 预计阅读时长：1分钟
+    字数：1,106字 | 预计阅读时长：4分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <a id="more"></a>
-<h1 id="Java后台面试总结"><a href="#Java后台面试总结" class="headerlink" title="Java后台面试总结"></a>Java后台面试总结</h1>
+        <p>这里记录一下面试的问题，方便自己查看和学习，good good study, day day up!。<br><img src="/2019/02/23/java-interview/interview-strive.jpg" alt="预览图"><br><a id="more"></a></p>
+<h1 id="Http协议"><a href="#Http协议" class="headerlink" title="Http协议"></a>Http协议</h1><hr>
+<h2 id="Http的特性"><a href="#Http的特性" class="headerlink" title="Http的特性"></a>Http的特性</h2><ul>
+<li>HTTP构建于TCP/IP协议之上，默认端口号是80</li>
+<li>HTTP是无连接无状态的<h2 id="请求报文"><a href="#请求报文" class="headerlink" title="请求报文"></a>请求报文</h2>HTTP 协议是以 ASCII 码传输，建立在 TCP/IP 协议之上的应用层规范。规范把 HTTP 请求分为三个部分：状态行、请求头、消息主体。类似于下面这样：<figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">method</span>&gt;</span> <span class="tag">&lt;<span class="name">request-URL</span>&gt;</span> <span class="tag">&lt;<span class="name">version</span>&gt;</span></span><br><span class="line"><span class="tag">&lt;<span class="name">headers</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">entity-body</span>&gt;</span></span><br></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="相应报文"><a href="#相应报文" class="headerlink" title="相应报文"></a>相应报文</h2><p>HTTP 响应与 HTTP 请求相似，HTTP响应也由3个部分构成，分别是：</p>
+<ul>
+<li>状态行</li>
+<li>响应头(Response Header)</li>
+<li>响应正文</li>
+</ul>
+<p><strong>常见的状态码有如下几种：</strong></p>
+<ul>
+<li>200 OK 客户端请求成功</li>
+<li>301 Moved Permanently 请求永久重定向</li>
+<li>302 Moved Temporarily 请求临时重定向</li>
+<li>304 Not Modified 文件未修改，可以直接使用缓存的文件。</li>
+<li>400 Bad Request 由于客户端请求有语法错误，不能被服务器所理解。</li>
+<li>401 Unauthorized 请求未经授权。这个状态代码必须和WWW-Authenticate报头域一起使用</li>
+<li>403 Forbidden 服务器收到请求，但是拒绝提供服务。服务器通常会在响应正文中给出不提供服务的原因</li>
+<li>404 Not Found 请求的资源不存在，例如，输入了错误的URL</li>
+<li>500 Internal Server Error 服务器发生不可预期的错误，导致无法完成客户端的请求。</li>
+<li>503 Service Unavailable 服务器当前不能够处理客户端的请求，在一段时间之后，服务器可能会恢复正常。</li>
+</ul>
+<p><strong>下面是一个HTTP响应的例子：</strong><br><figure class="highlight html"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">HTTP/1.1 200 OK</span><br><span class="line"></span><br><span class="line">Server:Apache Tomcat/5.0.12</span><br><span class="line">Date:Mon,6Oct2003 13:23:42 GMT</span><br><span class="line">Content-Length:112</span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span>...</span><br></pre></td></tr></table></figure></p>
+<h2 id="GET和POST的区别"><a href="#GET和POST的区别" class="headerlink" title="GET和POST的区别"></a>GET和POST的区别</h2><ol>
+<li>GET请求的数据会附在URL之后（就是把数据放置在HTTP协议头中），POST把提交的数据则放置在是HTTP包的包体中。</li>
+<li>GET对URL有长度限定（实际上HTTP协议没有对URL长度进行限定，限定是特定的浏览器和服务器规定的），而POST没有。</li>
+<li>POST的安全性要比GET的安全性高。<br><strong>总结：Get是向服务器发索取数据的一种请求，而Post是向服务器提交数据的一种请求，在FORM（表单）中，Method默认为”GET”，实质上，GET和POST只是发送机制不同，并不是一个取一个发！</strong></li>
+</ol>
+<h1 id="Spring"><a href="#Spring" class="headerlink" title="Spring"></a>Spring</h1><hr>
+<h2 id="Spring理解"><a href="#Spring理解" class="headerlink" title="Spring理解"></a>Spring理解</h2><ul>
+<li>开源框架</li>
+<li>IOC（控制反转）将类的创建和依赖关系放在配置文件中，由配置文件注入。实现了松耦合。</li>
+<li>AOP 将安全，事务等于程序逻辑相对独立的功能抽取出来，利用spring的配置文件将这些功能插进去，实现了按照面向层面编程，提高了复用性。<h2 id="Spring中IOC和AOP原理"><a href="#Spring中IOC和AOP原理" class="headerlink" title="Spring中IOC和AOP原理"></a>Spring中IOC和AOP原理</h2>IOC：控制反转也叫依赖注入，IOC利用java反射机制，AOP利用代理模式。所谓控制反转是指，本来被调用者实例由调用者来创建，这样耦合性太强。IOC则是统一交给spring来管理创建，将对象交给容器管理，你只需要在spring配置文件总配置相应的bean，以及设置相关的属性，让spring容器来生成类的实例对象以及管理对象。在spring容器启动的时候，spring会把你在配置文件中配置的bean都初始化好，然后在你需要调用的时候，就把它已经初始化好的那些bean分配给你需要调用这些bean的类。<br>AOP：AOP可以说是对OOP的补充和完善。OOP引入封装、继承和多态性等概念来建立一种对象层次结构，用以模拟公共行为的一个集合。实现AOP的技术，主要分为两大类：一是采用动态代理技术，利用截取消息的方式，对该消息进行装饰，以取代原有对象行为的执行；二是采用静态织入的方式，引入特定的语法创建“方面”，从而使得编译器可以在编译期间织入有关“方面”的代码，属于静态代理</li>
+</ul>
+<h1 id="IO"><a href="#IO" class="headerlink" title="IO"></a>IO</h1><p>IO流的分类：</p>
+<blockquote>
+<ul>
+<li>按照流的流向分，可以分为输入流和输出流；</li>
+<li>按照操作单元划分，可以划分为字节流和字符流；</li>
+<li>按照流的角色划分为节点流和处理流。</li>
+</ul>
+</blockquote>
+
       
 
       
@@ -217,6 +264,17 @@
 	</div>
 
       
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/categories/面试//" class="article-tag-list-link color3">面试</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
 
       
 
@@ -438,7 +496,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -446,11 +504,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">html</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color5">html</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -458,31 +516,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color4">pdf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">面试总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">日常总结</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -490,7 +524,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+                <a href="javascript:void(0)" class="js-tag color5">日常总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">面试总结</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">String</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -502,11 +556,23 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+                <a href="javascript:void(0)" class="js-tag color5">环境变量</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">linux</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">HttpClient</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
               </li>
              
               <li class="article-tag-list-item">
