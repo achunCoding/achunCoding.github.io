@@ -6,26 +6,35 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Centos7下JDK环境变量配置 | 阿春的博客</title>
+  <title>使用Cloudflare给hexo+github添加Https | 阿春的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
-<meta name="keywords" content="环境变量,linux,jdk">
+  <meta name="description" content="使用Cloudflare给hexo+github添加Https。Https已经被广泛使用，因为它相对于Http更加安全，建议使用Https。Https：超文本传输安全协议（英语：Hypertext Transfer Protocol Secure，缩写：HTTPS，常称为HTTP over TLS，HTTP over SSL或HTTP Secure）是一种通过计算机网络进行安全通信的传输协议。HT">
+<meta name="keywords" content="hexo,https">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Centos7下JDK环境变量配置">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/index.html">
+<meta property="og:title" content="使用Cloudflare给hexo+github添加Https">
+<meta property="og:url" content="http://yoursite.com/2019/04/04/hexo-github-https/index.html">
 <meta property="og:site_name" content="阿春的博客">
-<meta property="og:description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
+<meta property="og:description" content="使用Cloudflare给hexo+github添加Https。Https已经被广泛使用，因为它相对于Http更加安全，建议使用Https。Https：超文本传输安全协议（英语：Hypertext Transfer Protocol Secure，缩写：HTTPS，常称为HTTP over TLS，HTTP over SSL或HTTP Secure）是一种通过计算机网络进行安全通信的传输协议。HT">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/jdk-oracle.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/ls-lht.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/jdk-success.png">
-<meta property="og:updated_time" content="2019-04-05T05:38:33.113Z">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https01.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https02.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https03.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https04.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https05.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https06.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https07.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https08.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https09.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https10.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https11.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https12.png">
+<meta property="og:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https13.png">
+<meta property="og:updated_time" content="2019-04-05T05:42:42.500Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos7下JDK环境变量配置">
-<meta name="twitter:description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
+<meta name="twitter:title" content="使用Cloudflare给hexo+github添加Https">
+<meta name="twitter:description" content="使用Cloudflare给hexo+github添加Https。Https已经被广泛使用，因为它相对于Http更加安全，建议使用Https。Https：超文本传输安全协议（英语：Hypertext Transfer Protocol Secure，缩写：HTTPS，常称为HTTP over TLS，HTTP over SSL或HTTP Secure）是一种通过计算机网络进行安全通信的传输协议。HT">
+<meta name="twitter:image" content="http://yoursite.com/2019/04/04/hexo-github-https/hexo-github-https/hexo-github-https.png">
   
     <link rel="alternative" href="/atom.xml" title="阿春的博客" type="application/atom+xml">
   
@@ -175,65 +184,41 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux-jdk-environmental" class="article article-type-post " itemscope itemprop="blogPost">
+            <article id="post-hexo-github-https" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
     <h1 class="article-title" itemprop="name">
-      Centos7下JDK环境变量配置
+      使用Cloudflare给hexo+github添加Https
     </h1>
   
 
         
-        <a href="/2019/03/12/linux-jdk-environmental/" class="archive-article-date">
-  	<time datetime="2019-03-12T00:59:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
+        <a href="/2019/04/04/hexo-github-https/" class="archive-article-date">
+  	<time datetime="2019-04-04T00:07:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
 </a>
         
       </header>
       <div align="center" class="post-count">
-    字数：296字 | 预计阅读时长：1分钟
+    字数：520字 | 预计阅读时长：2分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p>最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。<br><img src="/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg" alt="预览图"><br><a id="more"></a></p>
-<h1 id="JDK下载"><a href="#JDK下载" class="headerlink" title="JDK下载"></a>JDK下载</h1><h2 id><a href="#" class="headerlink" title></a><img src="/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg" alt="预览图"></h2><p>这里以JDK8为案例进行安装，进入如下链接：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>首先可以查看自己是64位还是32位操作系统，选择相应的linux版本下载。这里我以64位为例，如图：<br><img src="/2019/03/12/linux-jdk-environmental/jdk-oracle.png" alt="Oracle官网"><br>下载下来用SFTP上传到服务器上。</p>
-<h1 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h1><hr>
-<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><p>下载以后通过命令检查安装包大小是否符合<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lht</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2019/03/12/linux-jdk-environmental/ls-lht.png" alt="查看jdk"></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li><p>创建安装目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/java</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压到安装目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u201-linux-x64.tar.gz -C /usr/local/java</span><br></pre></td></tr></table></figure>
-<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1></li>
+        <p>使用Cloudflare给hexo+github添加Https。Https已经被广泛使用，因为它相对于Http更加安全，建议使用Https。Https：超文本传输安全协议（英语：Hypertext Transfer Protocol Secure，缩写：HTTPS，常称为HTTP over TLS，HTTP over SSL或HTTP Secure）是一种通过计算机网络进行安全通信的传输协议。HTTPS经由HTTP进行通信，但利用SSL/TLS来加密数据包。HTTPS开发的主要目的，是提供对网站服务器的身份认证，保护交换数据的隐私与完整性。这个协议由网景公司（Netscape）在1994年首次提出，随后扩展到互联网上。<br><img src="hexo-github-https/hexo-github-https.png" alt="预览图"><br><a id="more"></a></p>
+<h1 id="设置域名"><a href="#设置域名" class="headerlink" title="设置域名"></a>设置域名</h1><p>首先使用hexo+github搭建的网站默认github会使用哪个https进行访问，如<a href="https://xxx.github.io" target="_blank" rel="noopener">https://xxx.github.io</a>进行访问，如果我们使用自己的域名（阿里云或者腾讯云上购买的）来访问博客。那么默认是没有https的。如果已经购买域名的。可以在这里设置并使用域名访问博客。<br><img src="hexo-github-https/hexo-github-https01.png" alt="预览图1"><br>进行域名设置<br><img src="hexo-github-https/hexo-github-https02.png" alt="预览图"><br>这样传到github的项目就会多出一个CNAME文件。<br><img src="hexo-github-https/hexo-github-https03.png" alt="预览图"></p>
+<h1 id="Cloudflare设置Https"><a href="#Cloudflare设置Https" class="headerlink" title="Cloudflare设置Https"></a>Cloudflare设置Https</h1><ol>
+<li>首先在Cloudflare中注册。只需要邮箱即可。<br><img src="hexo-github-https/hexo-github-https04.png" alt="预览图"></li>
+<li>注册完成之后登陆进去首先设置自己的域名。然后一步一步默认。<br><img src="hexo-github-https/hexo-github-https05.png" alt="预览图"></li>
+<li>点击DNS查看Cloudflare生成的两个DNS，之后去阿里云或者腾讯将DNS修改。这里以阿里云为例。<br><img src="hexo-github-https/hexo-github-https06.png" alt="预览图"><br><img src="hexo-github-https/hexo-github-https07.png" alt="预览图"></li>
+<li>进入阿里云修改DNS。<br><img src="hexo-github-https/hexo-github-https08.png" alt="预览图"></li>
+<li>修改完成之后进入Cloudflare页面中进行校验。这里我已经校验完成。提示是24小时，一般4-5个小时就可以了在这个页面进行校验。<br><img src="hexo-github-https/hexo-github-https09.png" alt="预览图"></li>
+<li>点击上方DNS选项，修改需要设置你blog的ip和域名具体如下。github的blog可以通过Ping进行获取。<br><img src="hexo-github-https/hexo-github-https10.png" alt="预览图"></li>
+<li>设置SSL。<br><img src="hexo-github-https/hexo-github-https11.png" alt="预览图"></li>
+<li>域名重定向，当有人访问你的域名没有加上https需要跳转到https连接上。在Page Rules中设置Always Use HTTPS即可。<br><img src="hexo-github-https/hexo-github-https12.png" alt="预览图"><br>全部设置完成之后过几分钟访问就可以有个小绿锁。开心！<br><img src="hexo-github-https/hexo-github-https13.png" alt="预览图"></li>
 </ol>
-<hr>
-<ul>
-<li>编辑环境变量</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在文章末尾添加(注意自己JDK的版本号)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_201</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使环境变量立即生效</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-<ul>
-<li>添加软链接</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/java/jdk1.8.0_171/bin/java /usr/bin/java</span><br></pre></td></tr></table></figure>
-<ul>
-<li>检查</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/03/12/linux-jdk-environmental/jdk-success.png" alt="配置成功"></p>
-<p>转载自：<a href="https://www.cnblogs.com/stulzq/p/9286878.html" target="_blank" rel="noopener">CentOS 7 安装 JAVA环境（JDK 1.8）</a></p>
 
       
 
@@ -247,15 +232,11 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境变量</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jdk</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
         		</li>
       		
 		</ul>
@@ -267,7 +248,7 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
@@ -322,7 +303,7 @@
     <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
     <p>扫一扫，分享到微信</p>
     <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/12/linux-jdk-environmental/" alt="微信分享二维码">
+      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/04/04/hexo-github-https/" alt="微信分享二维码">
     </div>
 </div>
 
@@ -336,18 +317,9 @@
   
 <nav id="article-nav">
   
-    <a href="/2019/03/20/linux-zookeeper-install/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Centos7下zookeeper下环境安装搭建
-        
-      </div>
-    </a>
   
-  
-    <a href="/2019/03/09/iterator-study-interview/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java 集合源码解析（1）：Iterator</div>
+    <a href="/2019/03/20/linux-zookeeper-install/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Centos7下zookeeper下环境安装搭建</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -366,19 +338,6 @@
             </div>
         </div>
         
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK下载"><span class="toc-number">1.</span> <span class="toc-text">JDK下载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解压安装"><span class="toc-number">2.</span> <span class="toc-text">解压安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看"><span class="toc-number">2.1.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.2.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境变量"><span class="toc-number">3.</span> <span class="toc-text">配置环境变量</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
         
     </div>
 </aside>

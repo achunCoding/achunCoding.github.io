@@ -6,26 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://yoursite.com">
-  <title>Centos7下JDK环境变量配置 | 阿春的博客</title>
+  <title>Tag: https | 阿春的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
-<meta name="keywords" content="环境变量,linux,jdk">
-<meta property="og:type" content="article">
-<meta property="og:title" content="Centos7下JDK环境变量配置">
-<meta property="og:url" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/index.html">
+  <meta name="description" content="淄博职业学院15级，从事Java后台开发。此为博客一枚。">
+<meta name="keywords" content="js,jquery,javascript,Spring,Java,MySQL">
+<meta property="og:type" content="website">
+<meta property="og:title" content="阿春的博客">
+<meta property="og:url" content="http://yoursite.com/tags/https/index.html">
 <meta property="og:site_name" content="阿春的博客">
-<meta property="og:description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
+<meta property="og:description" content="淄博职业学院15级，从事Java后台开发。此为博客一枚。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/jdk-oracle.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/ls-lht.png">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/jdk-success.png">
-<meta property="og:updated_time" content="2019-04-05T05:38:33.113Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Centos7下JDK环境变量配置">
-<meta name="twitter:description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
-<meta name="twitter:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
+<meta name="twitter:title" content="阿春的博客">
+<meta name="twitter:description" content="淄博职业学院15级，从事Java后台开发。此为博客一枚。">
   
     <link rel="alternative" href="/atom.xml" title="阿春的博客" type="application/atom+xml">
   
@@ -175,246 +168,75 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            <article id="post-linux-jdk-environmental" class="article article-type-post " itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
+            
   
-    <h1 class="article-title" itemprop="name">
-      Centos7下JDK环境变量配置
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2019" class="archive-year">2019</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      	<div class="article-meta">
+	      	<a href="/2019/04/04/hexo-github-https/" class="archive-article-date">
+  	<time datetime="2019-04-04T00:07:43.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-04-04</time>
+</a>
+        </div>
+    	 
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2019/04/04/hexo-github-https/">使用Cloudflare给hexo+github添加Https</a>
     </h1>
   
 
-        
-        <a href="/2019/03/12/linux-jdk-environmental/" class="archive-article-date">
-  	<time datetime="2019-03-12T00:59:30.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2019-03-12</time>
-</a>
-        
-      </header>
-      <div align="center" class="post-count">
-    字数：296字 | 预计阅读时长：1分钟
-      </div>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。<br><img src="/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg" alt="预览图"><br><a id="more"></a></p>
-<h1 id="JDK下载"><a href="#JDK下载" class="headerlink" title="JDK下载"></a>JDK下载</h1><h2 id><a href="#" class="headerlink" title></a><img src="/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg" alt="预览图"></h2><p>这里以JDK8为案例进行安装，进入如下链接：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>首先可以查看自己是64位还是32位操作系统，选择相应的linux版本下载。这里我以64位为例，如图：<br><img src="/2019/03/12/linux-jdk-environmental/jdk-oracle.png" alt="Oracle官网"><br>下载下来用SFTP上传到服务器上。</p>
-<h1 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h1><hr>
-<h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><p>下载以后通过命令检查安装包大小是否符合<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lht</span><br></pre></td></tr></table></figure></p>
-<p><img src="/2019/03/12/linux-jdk-environmental/ls-lht.png" alt="查看jdk"></p>
-<h2 id="安装"><a href="#安装" class="headerlink" title="安装"></a>安装</h2><ol>
-<li><p>创建安装目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">mkdir /usr/local/java</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>解压到安装目录</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tar -zxvf jdk-8u201-linux-x64.tar.gz -C /usr/local/java</span><br></pre></td></tr></table></figure>
-<h1 id="配置环境变量"><a href="#配置环境变量" class="headerlink" title="配置环境变量"></a>配置环境变量</h1></li>
-</ol>
-<hr>
-<ul>
-<li>编辑环境变量</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">vim /etc/profile</span><br></pre></td></tr></table></figure>
-<ul>
-<li>在文章末尾添加(注意自己JDK的版本号)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">export JAVA_HOME=/usr/local/java/jdk1.8.0_201</span><br><span class="line">export JRE_HOME=$&#123;JAVA_HOME&#125;/jre</span><br><span class="line">export CLASSPATH=.:$&#123;JAVA_HOME&#125;/lib:$&#123;JRE_HOME&#125;/lib</span><br><span class="line">export PATH=$&#123;JAVA_HOME&#125;/bin:$PATH</span><br></pre></td></tr></table></figure>
-<ul>
-<li>使环境变量立即生效</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">source /etc/profile</span><br></pre></td></tr></table></figure>
-<ul>
-<li>添加软链接</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /usr/local/java/jdk1.8.0_171/bin/java /usr/bin/java</span><br></pre></td></tr></table></figure>
-<ul>
-<li>检查</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">java -version</span><br></pre></td></tr></table></figure>
-<p><img src="/2019/03/12/linux-jdk-environmental/jdk-success.png" alt="配置成功"></p>
-<p>转载自：<a href="https://www.cnblogs.com/stulzq/p/9286878.html" target="_blank" rel="noopener">CentOS 7 安装 JAVA环境（JDK 1.8）</a></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
+        <div class="article-info info-on-right">
+          
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">环境变量</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">hexo</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">linux</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">jdk</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color1">https</a>
         		</li>
       		
 		</ul>
 	</div>
 
-      
+          
 	<div class="article-category tagcloud">
 		<i class="icon-book icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="/categories/linux//" class="article-tag-list-link color1">linux</a>
+        			<a href="/categories/hexo//" class="article-tag-list-link color5">hexo</a>
         		</li>
       		
 		</ul>
 	</div>
 
 
-      
-
-      
-        
-<div class="share-btn share-icons tooltip-left">
-  <div class="tooltip tooltip-east">
-    <span class="tooltip-item">
-      <a href="javascript:;" class="share-sns share-outer">
-        <i class="icon icon-share"></i>
-      </a>
-    </span>
-    <span class="tooltip-content">
-      <div class="share-wrap">
-        <div class="share-icons">
-          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
-            <i class="icon icon-weibo"></i>
-          </a>
-          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
-            <i class="icon icon-weixin"></i>
-          </a>
-          <a class="qq share-sns" href="javascript:;" data-type="qq">
-            <i class="icon icon-qq"></i>
-          </a>
-          <a class="douban share-sns" href="javascript:;" data-type="douban">
-            <i class="icon icon-douban"></i>
-          </a>
-          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
-            <i class="icon icon-qzone"></i>
-          </a>
-          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
-            <i class="icon icon-facebook"></i>
-          </a>
-          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
-            <i class="icon icon-twitter"></i>
-          </a>
-          <a class="google share-sns" href="javascript:;" data-type="google">
-            <i class="icon icon-google"></i>
-          </a>
         </div>
-      </div>
-    </span>
-  </div>
-</div>
-
-<div class="page-modal wx-share js-wx-box">
-    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
-    <p>扫一扫，分享到微信</p>
-    <div class="wx-qrcode">
-      <img src="//pan.baidu.com/share/qrcode?url=http://yoursite.com/2019/03/12/linux-jdk-environmental/" alt="微信分享二维码">
-    </div>
-</div>
-
-<div class="mask js-mask"></div>
-      
-      <div class="clearfix"></div>
-    </div>
+        <div class="clearfix"></div>
+    </header>
   </div>
 </article>
-
-  
-<nav id="article-nav">
-  
-    <a href="/2019/03/20/linux-zookeeper-install/" id="article-nav-newer" class="article-nav-link-wrap">
-      <i class="icon-circle-left"></i>
-      <div class="article-nav-title">
-        
-          Centos7下zookeeper下环境安装搭建
-        
-      </div>
-    </a>
   
   
-    <a href="/2019/03/09/iterator-study-interview/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">Java 集合源码解析（1）：Iterator</div>
-      <i class="icon-circle-right"></i>
-    </a>
-  
-</nav>
-
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK下载"><span class="toc-number">1.</span> <span class="toc-text">JDK下载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解压安装"><span class="toc-number">2.</span> <span class="toc-text">解压安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看"><span class="toc-number">2.1.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.2.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境变量"><span class="toc-number">3.</span> <span class="toc-text">配置环境变量</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
-    </div>
-</aside>
-
-
-
-  
-  
+    </div></section>
   
 
-  
-
-  
-   <!-- 来必力City版安装代码 -->
-<div id="lv-container" data-id="city" data-uid="MTAyMC80Mjk5NS8xOTU0MQ==">
-<script type="text/javascript">
-   (function(d, s) {
-       var j, e = d.getElementsByTagName(s)[0];
-
-       if (typeof LivereTower === 'function') { return; }
-
-       j = d.createElement(s);
-       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
-       j.async = true;
-
-       e.parentNode.insertBefore(j, e);
-   })(document, 'script');
-</script>
-<noscript>为正常使用来必力评论功能请激活JavaScript</noscript>
-</div>
-<!-- City版安装代码已完成 -->
-
-
-  
-
-  
+    
 
 
           </div>
@@ -443,9 +265,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: true,
+		isPost: false,
 		isArchive: false,
-		isTag: false,
+		isTag: true,
 		isCategory: false,
 		open_in_new: false,
 		toc_hide_index: true,

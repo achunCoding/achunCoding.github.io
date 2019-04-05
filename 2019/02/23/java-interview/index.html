@@ -17,7 +17,7 @@
 <meta property="og:description" content="这里记录一下面试的问题，方便自己查看和学习，good good study, day day up!。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/02/23/java-interview/interview-strive.jpg">
-<meta property="og:updated_time" content="2019-03-12T01:30:55.427Z">
+<meta property="og:updated_time" content="2019-03-21T13:04:19.753Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Java后台面试总结（一）">
 <meta name="twitter:description" content="这里记录一下面试的问题，方便自己查看和学习，good good study, day day up!。">
@@ -73,9 +73,9 @@
 			</ul>
 		</nav>
 		<nav>
-    		总文章数 26
+    		总文章数 27
 		</nav>
-		总字数 <span class="post-count">40.1k</span>
+		总字数 <span class="post-count">41.6k</span>
 
 		<nav class="header-smart-menu">
     		
@@ -189,7 +189,7 @@
         
       </header>
       <div align="center" class="post-count">
-    字数：1,106字 | 预计阅读时长：4分钟
+    字数：2,027字 | 预计阅读时长：7分钟
       </div>
     
     <div class="article-entry" itemprop="articleBody">
@@ -240,6 +240,36 @@
 <li>按照流的角色划分为节点流和处理流。</li>
 </ul>
 </blockquote>
+<h2 id="接口和抽象类的区别"><a href="#接口和抽象类的区别" class="headerlink" title="接口和抽象类的区别"></a>接口和抽象类的区别</h2><ol>
+<li>接口中的方法默认是public，所有的方法在接口中不能有实现（Java8开始接口方法可以有默认实现），抽象类可以有非抽象方法</li>
+<li>接口中的实例变量默认是final类型的，而抽象类则不一定</li>
+<li>一个类可以实现多个接口，但最多只能继承一个抽象类</li>
+<li>一个类实现接口的话要实现接口中所有方法，而抽象类不一定</li>
+<li>接口不能new实例化，但可以声明，必须引用一个实现该接口的对象。从设计层面来说，抽象类是对类的抽象，是一种模板设计，接口是行为的抽象，是一种行为规范。</li>
+</ol>
+<h2 id="线程池的作用"><a href="#线程池的作用" class="headerlink" title="线程池的作用"></a>线程池的作用</h2><p>线程池提供了一种限制和管理资源（包括执行一个任务）。每个线程池还维护一些基本统计信息，例如已经完成任务的数量。<br>这里借用《Java并发编程的艺术》提到的来说一下使用线程池的好处：</p>
+<ul>
+<li>降低资源消耗：通过重复利用已创建的线程降低线程的创建和销毁造成的消耗</li>
+<li>提高响应速度：当任务到达时，任务可以不需要等到线程创建就能立即执行。</li>
+<li>提高线程的可管理性：线程是稀缺资源，如果无限制的创建，不仅会消耗系统资源，还会降低系统的稳定性，使用线程池可以进行统一和分配，调优和监控。</li>
+</ul>
+<h2 id="ThreadLocal的作用"><a href="#ThreadLocal的作用" class="headerlink" title="ThreadLocal的作用"></a>ThreadLocal的作用</h2><ol>
+<li>使用这个工具类可以很简洁地编写出优美的多线程程序。</li>
+<li>线程局部变量是局限于线程内的变量，属于线程自身所有，不在多个线程间共享。java提供ThreadLocal类来支持线程局部变量，是一个实现线程安全的方式。</li>
+<li>任何线程局部变量一旦在工作完成后没有释放，java应用就存在内存泄露的风险</li>
+<li>ThreadLocal是一种以空间换时间的做法，在每一个Thread里面维护了一个ThreadLocal.ThreadLocalMap把数据进行隔离，数据不共享，自然就没有线程安全方面的问题了。</li>
+</ol>
+<h2 id="存储过程的定义和作用"><a href="#存储过程的定义和作用" class="headerlink" title="存储过程的定义和作用"></a>存储过程的定义和作用</h2><p>存储程序（英语：Stored Procedure），又称为存储过程，是一种在数据库中存储复杂程序，以便外部程序调用的一种数据库对象，它可以视为数据库中的一种函数或子程序。</p>
+<ol>
+<li>使用了存储过程，很多相似性的删除、更新、新增等操作就变得十分简单，并且也便于管理。</li>
+<li>存储过程因为SQL语句已经预编绎过了，因此运行的速度比较快。</li>
+<li>存储过程可以接受参数、输出参数、返回单个或多个结果集以及返回值。可以向程序返回错误原因。 </li>
+<li>存储过程运行比较稳定，不会有太多的错误。只要一次成功，以后都会按这个程序运行。 </li>
+<li>存储过程主要是在服务器上运行，减少对客户机的压力。</li>
+<li>存储过程可以包含程序流、逻辑以及对数据库的查询。同时可以实体封装和隐藏了数据逻辑。</li>
+<li>存储过程可以在单个存储过程中执行一系列SQL语句。  </li>
+<li>存储过程可以从自己的存储过程内引用其它存储过程，这可以简化一系列复杂语句。</li>
+</ol>
 
       
 
@@ -369,6 +399,19 @@
         </div>
         
         
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Http协议"><span class="toc-number">1.</span> <span class="toc-text">Http协议</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Http的特性"><span class="toc-number">1.1.</span> <span class="toc-text">Http的特性</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#请求报文"><span class="toc-number">1.2.</span> <span class="toc-text">请求报文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相应报文"><span class="toc-number">1.3.</span> <span class="toc-text">相应报文</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#GET和POST的区别"><span class="toc-number">1.4.</span> <span class="toc-text">GET和POST的区别</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring"><span class="toc-number">2.</span> <span class="toc-text">Spring</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring理解"><span class="toc-number">2.1.</span> <span class="toc-text">Spring理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Spring中IOC和AOP原理"><span class="toc-number">2.2.</span> <span class="toc-text">Spring中IOC和AOP原理</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#IO"><span class="toc-number">3.</span> <span class="toc-text">IO</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#接口和抽象类的区别"><span class="toc-number">3.1.</span> <span class="toc-text">接口和抽象类的区别</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#线程池的作用"><span class="toc-number">3.2.</span> <span class="toc-text">线程池的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ThreadLocal的作用"><span class="toc-number">3.3.</span> <span class="toc-text">ThreadLocal的作用</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#存储过程的定义和作用"><span class="toc-number">3.4.</span> <span class="toc-text">存储过程的定义和作用</span></a></li></ol></li></ol>
+                    </div>
+                </span>
+            </div>
+        </div>
+        
     </div>
 </aside>
 
@@ -496,7 +539,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -504,7 +547,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -524,7 +567,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pdf</a>
+                <a href="javascript:void(0)" class="js-tag color3">集合</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -532,11 +575,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
+                <a href="javascript:void(0)" class="js-tag color5">hexo</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">集合</a>
+                <a href="javascript:void(0)" class="js-tag color1">https</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -564,6 +611,22 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pdf</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HttpClient</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Web服务器</a>
               </li>
              
@@ -572,19 +635,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HttpClient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color1">freemarker</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -592,7 +643,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">freemarker</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
