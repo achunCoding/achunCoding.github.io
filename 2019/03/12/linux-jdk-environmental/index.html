@@ -17,11 +17,10 @@
 <meta property="og:description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
-<meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg">
 <meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/jdk-oracle.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/ls-lht.png">
 <meta property="og:image" content="http://yoursite.com/2019/03/12/linux-jdk-environmental/jdk-success.png">
-<meta property="og:updated_time" content="2019-04-05T05:38:33.113Z">
+<meta property="og:updated_time" content="2019-04-05T05:48:12.690Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Centos7下JDK环境变量配置">
 <meta name="twitter:description" content="最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。">
@@ -199,7 +198,8 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p>最近正在学习linux基本操作，首先就是JDK环境变量的配置。成功的法则极为简单，但简单并不代表容易。<br><img src="/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg" alt="预览图"><br><a id="more"></a></p>
-<h1 id="JDK下载"><a href="#JDK下载" class="headerlink" title="JDK下载"></a>JDK下载</h1><h2 id><a href="#" class="headerlink" title></a><img src="/2019/03/12/linux-jdk-environmental/linux-beutiful.jpeg" alt="预览图"></h2><p>这里以JDK8为案例进行安装，进入如下链接：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>首先可以查看自己是64位还是32位操作系统，选择相应的linux版本下载。这里我以64位为例，如图：<br><img src="/2019/03/12/linux-jdk-environmental/jdk-oracle.png" alt="Oracle官网"><br>下载下来用SFTP上传到服务器上。</p>
+<h1 id="JDK下载"><a href="#JDK下载" class="headerlink" title="JDK下载"></a>JDK下载</h1><hr>
+<p>这里以JDK8为案例进行安装，进入如下链接：<a href="https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html" target="_blank" rel="noopener">https://www.oracle.com/technetwork/java/javase/downloads/jdk8-downloads-2133151.html</a><br>首先可以查看自己是64位还是32位操作系统，选择相应的linux版本下载。这里我以64位为例，如图：<br><img src="/2019/03/12/linux-jdk-environmental/jdk-oracle.png" alt="Oracle官网"><br>下载下来用SFTP上传到服务器上。</p>
 <h1 id="解压安装"><a href="#解压安装" class="headerlink" title="解压安装"></a>解压安装</h1><hr>
 <h2 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h2><p>下载以后通过命令检查安装包大小是否符合<br><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ls -lht</span><br></pre></td></tr></table></figure></p>
 <p><img src="/2019/03/12/linux-jdk-environmental/ls-lht.png" alt="查看jdk"></p>
@@ -367,19 +367,6 @@
         </div>
         
         
-        <div class="toc-container tooltip-left">
-            <i class="icon-font icon-category"></i>
-            <div class="tooltip tooltip-east">
-                <span class="tooltip-item">
-                </span>
-                <span class="tooltip-content">
-                    <div class="toc-article">
-                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#JDK下载"><span class="toc-number">1.</span> <span class="toc-text">JDK下载</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#"><span class="toc-number">1.1.</span> <span class="toc-text"></span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解压安装"><span class="toc-number">2.</span> <span class="toc-text">解压安装</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#查看"><span class="toc-number">2.1.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#安装"><span class="toc-number">2.2.</span> <span class="toc-text">安装</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#配置环境变量"><span class="toc-number">3.</span> <span class="toc-text">配置环境变量</span></a></li></ol>
-                    </div>
-                </span>
-            </div>
-        </div>
-        
     </div>
 </aside>
 
@@ -507,7 +494,7 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
+                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -515,11 +502,19 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Hibernate</a>
+                <a href="javascript:void(0)" class="js-tag color1">Javascript</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">html</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color4">pdf</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -531,15 +526,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Java</a>
+                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">集合</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">多线程</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -548,10 +543,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">https</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">SpringBoot</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -579,22 +570,6 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">pdf</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">HttpClient</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color2">Web服务器</a>
               </li>
              
@@ -603,15 +578,27 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color2">Spring</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">HttpClient</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color1">MySQL</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color1">freemarker</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">POI</a>
+                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color2">jquery</a>
+                <a href="javascript:void(0)" class="js-tag color4">POI</a>
               </li>
              
               <li class="article-tag-list-item">
